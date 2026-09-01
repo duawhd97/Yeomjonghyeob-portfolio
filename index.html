@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
 
+<html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Career Portfolio | TPM · PM · Product Strategy</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Career Portfolio | TPM · PM · Product Strategy</title>
+<style>
         :root {
             --bg: #edf2f8;
             --card: #fff;
@@ -689,80 +689,80 @@
                 display: block
             }
         }
-    </style>
-</head>
+    
 
+#visitor-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);color:#dceaff;font-size:11px;white-space:nowrap}
+#visitor-badge b{color:#fff;font-weight:800}#visitor-badge i{font-style:normal;opacity:.45}
+#visitor-badge.tracker-offline{opacity:.62}
+</style>
+</head>
 <body>
-    <div class="progress"><i></i></div>
-    <nav class="nav"><a href="#role" class="active" data-nav="role">Role</a><a href="#experience"
-            data-nav="experience">Experience</a><a href="#projects" data-nav="projects">Projects</a><a href="#skills"
-            data-nav="skills">Skills</a></nav>
-    <div class="tools"><button id="expand">Expand all</button><button id="top">↑</button></div>
-    <main class="sheet">
-        <header class="hero">
-            <div class="lang"><button class="on" data-lang="ko">KO</button><button data-lang="en">EN</button></div>
-            <div class="eyebrow">CAREER PORTFOLIO · 2023.06–2026.09.01</div>
-            <h1 id="heroTitle"></h1>
-            <p class="role">TPM · PM · Product Strategy</p>
-            <p class="summary" id="heroSummary"></p>
-            <div class="hero-meta"><span>Retail IoT · SaaS · AI Platform</span><span>Product Strategy · Technical
-                    PM</span><span>SOLUM | 2025.03–Present</span></div>
-            <div class="hero-actions"><a href="#projects" id="viewProjects"></a><button id="copy"></button></div>
-        </header>
-        <div class="wrap">
-            <section class="section" id="role">
-                <div class="section-head">
-                    <div class="num">01 · ROLE</div>
-                    <div>
-                        <h2 id="roleTitle"></h2>
-                        <p class="lead" id="roleLead"></p>
-                    </div>
-                </div>
-                <div class="pills"><span class="pill">TPM</span><span class="pill">PM</span><span class="pill">Product
+<div class="progress"><i></i></div>
+<nav class="nav"><a class="active" data-nav="role" href="#role">Role</a><a data-nav="experience" href="#experience">Experience</a><a data-nav="projects" href="#projects">Projects</a><a data-nav="skills" href="#skills">Skills</a></nav>
+<div class="tools"><button id="expand">Expand all</button><button id="top">↑</button></div>
+<main class="sheet">
+<header class="hero">
+<div class="lang"><button class="on" data-lang="ko">KO</button><button data-lang="en">EN</button></div>
+<div class="eyebrow">CAREER PORTFOLIO · 2023.06–2026.09.01</div>
+<h1 id="heroTitle"></h1>
+<p class="role">TPM · PM · Product Strategy</p>
+<p class="summary" id="heroSummary"></p>
+<div class="hero-meta"><span>Retail IoT · SaaS · AI Platform</span><span>Product Strategy · Technical
+                    PM</span><span>SOLUM | 2025.03–Present</span><span aria-live="polite" id="visitor-badge">Today <b id="visitor-today">-</b><i>·</i> Total <b id="visitor-total">-</b></span></div>
+<div class="hero-actions"><a href="#projects" id="viewProjects"></a><button id="copy"></button></div>
+</header>
+<div class="wrap">
+<section class="section" id="role">
+<div class="section-head">
+<div class="num">01 · ROLE</div>
+<div>
+<h2 id="roleTitle"></h2>
+<p class="lead" id="roleLead"></p>
+</div>
+</div>
+<div class="pills"><span class="pill">TPM</span><span class="pill">PM</span><span class="pill">Product
                         Strategy</span></div>
-                <div class="grid" id="roleGrid"></div>
-            </section>
-            <section class="section" id="experience">
-                <div class="section-head">
-                    <div class="num">02 · EXPERIENCE</div>
-                    <div>
-                        <h2 id="expTitle"></h2>
-                        <p class="lead" id="expLead"></p>
-                    </div>
-                </div>
-                <div id="careerList"></div>
-            </section>
-            <section class="section" id="projects">
-                <div class="section-head">
-                    <div class="num">03 · PROJECTS</div>
-                    <div>
-                        <h2 id="projTitle"></h2>
-                        <p class="lead" id="projLead"></p>
-                    </div>
-                </div>
-                <div class="toolbar">
-                    <div class="filters"><button class="on" data-filter="all">All</button><button
-                            data-filter="pm">Product PM</button><button data-filter="tpm">Technical PM</button><button
-                            data-filter="platform">Platform</button><button data-filter="policy">Policy</button></div>
-                    <label class="search">⌕ <input id="search"></label>
-                </div>
-                <div class="count"><b id="count">8</b> <span id="countLabel"></span></div>
-                <div id="projectList"></div>
-            </section>
-            <section class="section" id="skills">
-                <div class="section-head">
-                    <div class="num">04 · CAPABILITY</div>
-                    <div>
-                        <h2 id="skillTitle"></h2>
-                    </div>
-                </div>
-                <div class="skills" id="skillList"></div>
-            </section>
-        </div>
-        <footer class="footer"><span>TPM / PM / Product Strategy</span><span>Career Portfolio · Updated
+<div class="grid" id="roleGrid"></div>
+</section>
+<section class="section" id="experience">
+<div class="section-head">
+<div class="num">02 · EXPERIENCE</div>
+<div>
+<h2 id="expTitle"></h2>
+<p class="lead" id="expLead"></p>
+</div>
+</div>
+<div id="careerList"></div>
+</section>
+<section class="section" id="projects">
+<div class="section-head">
+<div class="num">03 · PROJECTS</div>
+<div>
+<h2 id="projTitle"></h2>
+<p class="lead" id="projLead"></p>
+</div>
+</div>
+<div class="toolbar">
+<div class="filters"><button class="on" data-filter="all">All</button><button data-filter="pm">Product PM</button><button data-filter="tpm">Technical PM</button><button data-filter="platform">Platform</button><button data-filter="policy">Policy</button></div>
+<label class="search">⌕ <input id="search"/></label>
+</div>
+<div class="count"><b id="count">8</b> <span id="countLabel"></span></div>
+<div id="projectList"></div>
+</section>
+<section class="section" id="skills">
+<div class="section-head">
+<div class="num">04 · CAPABILITY</div>
+<div>
+<h2 id="skillTitle"></h2>
+</div>
+</div>
+<div class="skills" id="skillList"></div>
+</section>
+</div>
+<footer class="footer"><span>TPM / PM / Product Strategy</span><span>Career Portfolio · Updated
                 2026.09.01</span></footer>
-    </main>
-    <script>
+</main>
+<script>
         const D = { "ko": { "title": "Portfolio", "summary": "전략기획그룹의 PM으로서 자사 SaaS Platform과 Ontology 기반 AI 플랫폼의 제품 전략, 로드맵 및 제품화를 담당합니다. 선반 재고 모니터링 카메라·센서 솔루션과 Retail IoT 신규 Feature를 대상으로 고객과 글로벌 법인의 요구를 제품 시나리오, 정책, 기능 범위 및 개발 요구사항으로 구체화하고, 국내외 제품·개발·사업 조직의 실행을 조율합니다.", "view": "프로젝트 살펴보기 ↓", "copy": "소개 문구 복사", "roleTitle": "제품과 기술 사이의 실행을 설계하는 PM", "roleLead": "정보의 시각화 역량을 활용해 제품 정책과 기술 요구사항을 실제 사용 흐름으로 검증합니다.", "expTitle": "경력", "expLead": "제품 전략과 서비스 기획을 기반으로 플랫폼 및 엔터프라이즈 시스템 구축 경험을 이어왔습니다.", "projTitle": "주요 프로젝트", "projLead": "2023년 6월부터 2026년 9월 1일까지 수행한 제품 전략, 제품화, 플랫폼 개선 및 엔터프라이즈 시스템 구축 경험입니다.", "count": "개의 프로젝트", "search": "프로젝트·기술 검색", "skillTitle": "핵심 역량 및 기술", "main": "주요 수행", "result": "주요 성과", "deliver": "산출물", "cap": "활용 역량", "roles": [["제품 전략 및 로드맵", "시장·고객·법인 요구와 내부 기술 자산을 연결해 제품 방향, 우선순위, MRD·PRD 및 개발 Scope를 정의합니다."], ["Technical Product Management", "HW·FW·Gateway·Server·API·Web·Mobile의 역할과 데이터 흐름을 정의하고 기술 제약을 제품화 단계로 전환합니다."], ["제품 정책 및 시나리오", "설치, 재할당, 물류, 장애 및 예외상황까지 포함한 운영정책과 제품 시나리오를 설계합니다."], ["PM 및 커뮤니케이션", "전략기획, 제품, UX, 개발, 영업, 해외 법인 및 고객사 사이에서 목표·범위·리스크·의사결정을 조율합니다."], ["리더십", "프로덕트 디자이너 2명의 기획자 직무 전환을 멘토링하며 과제 배분, 제품 도메인 교육, 산출물 검토 및 업무 방향 설정을 담당합니다."], ["PoC 및 Prototype 검증", "Working Prototype과 현장 PoC를 활용해 개발 전 제품 시나리오, 기술 타당성 및 이해관계자 기대 수준을 검증합니다."]], "careers": [["SOLUM", "정규직", "대한민국 경기도 용인 · 대면근무", "2025.03 – 현재", [["Product Manager - Business & Product Strategy Group", "2026.05 – 현재"], ["Service Planner - CX Group", "2025.03 – 2026.04 · 1년 2개월"]]], ["㈜서원정보", "서비스 기획 · 정규직", "대한민국 서울 · 대면근무", "2023.06 – 2025.03 · 1년 10개월", [["서비스 기획", "엔터프라이즈 포털 및 Cloud Native PaaS 구축 프로젝트"]]]] }, "en": { "title": "Career Portfolio", "summary": "As a PM in the Business & Product Strategy Group, I lead product strategy, roadmaps, and productization for an in-house SaaS platform and an ontology-based AI platform. I translate customer and global subsidiary needs for shelf-inventory monitoring camera and sensor solutions and new Retail IoT features into product scenarios, policies, functional scope, and development requirements, while coordinating execution across product, engineering, and business teams in Korea and abroad.", "view": "Explore Projects ↓", "copy": "Copy Summary", "roleTitle": "A PM who turns product and technology into execution", "roleLead": "I use information visualization to validate product policies and technical requirements through real user flows.", "expTitle": "Experience", "expLead": "Experience spanning product strategy, service planning, platform products, and enterprise system delivery.", "projTitle": "Selected Projects", "projLead": "Product strategy, productization, platform improvement, and enterprise system delivery experience from June 2023 through September 1, 2026.", "count": "projects", "search": "Search projects or technologies", "skillTitle": "Core Capabilities & Technologies", "main": "KEY RESPONSIBILITIES", "result": "KEY OUTCOMES", "deliver": "Deliverables", "cap": "Capabilities", "roles": [["Product Strategy & Roadmap", "Connect market, customer, and subsidiary needs with internal technology assets to define product direction, priorities, MRDs/PRDs, and development scope."], ["Technical Product Management", "Define roles and data flows across hardware, firmware, gateways, servers, APIs, web, and mobile, and translate technical constraints into productization stages."], ["Product Policy & Scenarios", "Design operating policies and product scenarios covering installation, reassignment, logistics, failures, and exception cases."], ["PM & Communication", "Coordinate objectives, scope, risks, and decisions across strategy, product, UX, engineering, sales, global subsidiaries, and customers."], ["Leadership", "Mentor two product designers transitioning into planning roles, including work allocation, product-domain training, deliverable reviews, and direction setting."], ["PoC & Prototype Validation", "Use working prototypes and field PoCs to validate product scenarios, technical feasibility, and stakeholder expectations before development."]], "careers": [["SOLUM", "Full-time", "Yongin, Gyeonggi-do, Korea · On-site", "Mar 2025 – Present", [["Product Manager - Business & Product Strategy Group", "May 2026 – Present"], ["Service Planner - CX Group", "Mar 2025 – Apr 2026 · 1 yr 2 mos"]]], ["Seowon Information Co., Ltd.", "Service Planning · Full-time", "Seoul, Korea · On-site", "Jun 2023 – Mar 2025 · 1 yr 10 mos", [["Service Planner", "Enterprise portal and cloud-native PaaS delivery projects"]]]] } };
         const P = [
             { cat: 'pm platform', ko: ['Ontology 기반 AI 플랫폼 기획 및 제품화 TF', '전략기획그룹 PM|AI Platform|Productization', '2026.04 ~', 'Map, Ontology, Graph Database, GraphRAG 및 AI Agent를 기반으로 Shelf·Product·ESL·Camera·Sensor 데이터를 연결하고 통합 관제와 AI Insight를 제공하는 자사 AI 플랫폼 제품화 프로젝트입니다.', ['Product Concept, Target User, 핵심 가치 및 SaaS Platform 내 역할 정의', '자연어 질의, 관계 분석, 실시간 상태 조회 및 AI Agent Use Case 기획', '카메라, Signage, Power Rail, Digital Twin, SaaS 등 5개 연계 제품 Roadmap 통합', 'Roadmap 항목을 MRD·PRD와 개발과제로 연결하고 TF의 Scope, R&R, 이슈 및 의사결정 관리', '국내외 대형 리테일 업체 대상 PoC에서 TPM 역할로 고객 요구사항, 기술 범위 및 검증 시나리오 커뮤니케이션'], ['5개 제품 영역의 Roadmap을 하나의 제품화 관점으로 통합', '선행기술을 사용자·사업 가치 중심의 AI Platform Concept으로 전환', '국내외 대형 리테일 업체 PoC를 통해 제품 시나리오와 기술 검증 범위 구체화', 'PRD·Use Case·Prototype·API Flow 기반 협업체계 구축'], 'Product Concept & Vision, MRD·PRD, Role-Based Use Case, AI Prompt Scenario, Product Roadmap, Prototype'], en: ['Ontology-based AI Platform Planning & Productization TF', 'Product Strategy PM|AI Platform|Productization', 'Apr 2026 – Present', 'Productization initiative for an in-house AI platform that connects Shelf, Product, ESL, Camera, and Sensor data through maps, ontologies, graph databases, GraphRAG, and AI agents to deliver unified monitoring and AI insights.', ['Defined the product concept, target users, core value, and role within the SaaS platform', 'Designed use cases for natural-language queries, relationship analysis, real-time status checks, and AI agents', 'Integrated roadmaps across five connected product areas: camera, signage, power rail, digital twin, and SaaS', 'Connected roadmap items to MRDs, PRDs, and development initiatives while managing scope, R&R, issues, and decisions', 'Served as TPM in PoCs with major domestic and global retailers, aligning customer needs, technical scope, and validation scenarios'], ['Integrated roadmaps across five product areas into a single productization view', 'Reframed advanced technology into an AI platform concept centered on user and business value', 'Refined product scenarios and technical validation scope through retailer PoCs', 'Established a collaboration model based on PRDs, use cases, prototypes, and API flows'], 'Product Concept & Vision, MRD/PRD, role-based use cases, AI prompt scenarios, product roadmap, prototype'] },
@@ -835,6 +835,71 @@
             syncUtilityCopy();
         })();
 </script>
-</body>
+<script id="firebase-visitor-tracker" type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, runTransaction, onValue, set, update, onDisconnect, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBiWQBa8JDd2vWI3Xt8j7MkHYOOFyzIrHg",
+  authDomain: "yeom-tracker.firebaseapp.com",
+  databaseURL: "https://yeom-tracker-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "yeom-tracker",
+  storageBucket: "yeom-tracker.firebasestorage.app",
+  messagingSenderId: "123068953287",
+  appId: "1:123068953287:web:197c70749c6c61d34584e2"
+};
+
+const badge = document.getElementById('visitor-badge');
+const todayEl = document.getElementById('visitor-today');
+const totalEl = document.getElementById('visitor-total');
+
+try {
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const dateKey = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(new Date());
+  const visitStorageKey = 'portfolio_visited_' + dateKey;
+  const sessionId = (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2));
+  const sessionPath = 'sessions/' + sessionId;
+  const sessionStart = Date.now();
+
+  if (!sessionStorage.getItem(visitStorageKey)) {
+    sessionStorage.setItem(visitStorageKey, '1');
+    await Promise.all([
+      runTransaction(ref(db, 'stats/daily/' + dateKey), value => (value || 0) + 1),
+      runTransaction(ref(db, 'stats/total'), value => (value || 0) + 1)
+    ]);
+  }
+
+  let referrerDomain = 'direct';
+  try { if (document.referrer) referrerDomain = new URL(document.referrer).hostname.replace(/\./g, '_'); } catch (_) {}
+  runTransaction(ref(db, 'stats/referrer/' + referrerDomain), value => (value || 0) + 1).catch(console.warn);
+
+  const onlineRef = ref(db, 'online/' + sessionId);
+  await set(onlineRef, true);
+  onDisconnect(onlineRef).remove();
+  await set(ref(db, sessionPath), {
+    start: serverTimestamp(),
+    startClient: sessionStart,
+    referrer: document.referrer || 'direct',
+    path: location.pathname,
+    language: document.documentElement.lang || navigator.language,
+    userAgent: navigator.userAgent
+  });
+
+  onValue(ref(db, 'stats/daily/' + dateKey), snap => { if (todayEl) todayEl.textContent = snap.val() || 0; });
+  onValue(ref(db, 'stats/total'), snap => { if (totalEl) totalEl.textContent = snap.val() || 0; });
+
+  const finishSession = () => {
+    const duration = Math.max(0, Math.floor((Date.now() - sessionStart) / 1000));
+    update(ref(db, sessionPath), { end: serverTimestamp(), endClient: Date.now(), duration }).catch(() => {});
+  };
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') finishSession(); });
+  window.addEventListener('pagehide', finishSession, { once: true });
+} catch (error) {
+  console.warn('Firebase visitor tracking unavailable:', error);
+  if (badge) { badge.classList.add('tracker-offline'); badge.title = 'Visitor statistics unavailable'; }
+}
+</script></body>
 </html>
