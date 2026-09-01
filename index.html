@@ -1,1194 +1,1022 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>염종협 | IT Planner / Product Owner</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>경력기술서 | TPM · PM · 제품전략기획</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        :root {
+            --ink: #172033;
+            --muted: #667085;
+            --line: #e6eaf0;
+            --brand: #175cd3;
+            --brand2: #0b4a9f;
+            --soft: #f5f8fc;
+            --card: #fff;
+            --accent: #16a085;
+            --max: 1040px
+        }
 
-  :root {
-    --bg: #ffffff;
-    --text: #37352f;
-    --text-light: #6b6b6b;
-    --text-muted: #999;
-    --accent: #2f80ed;
-    --accent-bg: #e8f0fe;
-    --border: #e9e9e7;
-    --card-bg: #f7f6f3;
-    --card-hover: #efeee9;
-    --tag-bg: #f1f1ef;
-    --callout-bg: #f7f6f3;
-    --callout-border: #e9e9e7;
-    --code-bg: #f4f4f4;
-    --max-width: 820px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
-    --transition: 0.2s ease;
-  }
+        * {
+            box-sizing: border-box
+        }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+        html {
+            scroll-behavior: smooth
+        }
 
-  body {
-    font-family: 'Noto Sans KR', 'Inter', -apple-system, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: #eef2f7;
+            font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+            line-height: 1.68;
+            word-break: keep-all
+        }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 3px; }
+        a {
+            color: inherit
+        }
 
-  /* Page views */
-  .page { display: none; animation: fadeIn 0.3s ease; }
-  .page.active { display: block; }
+        .sheet {
+            max-width: var(--max);
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 16px 60px rgba(16, 24, 40, .11)
+        }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        .hero {
+            padding: 72px 72px 54px;
+            background: linear-gradient(135deg, #0b2b55 0%, #174f92 65%, #1c6bb4 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden
+        }
 
-  /* Layout */
-  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+        .hero:after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 50%;
+            right: -100px;
+            top: -155px;
+            box-shadow: 0 0 0 52px rgba(255, 255, 255, .035), 0 0 0 106px rgba(255, 255, 255, .025)
+        }
 
-  /* Hero Section */
-  .hero {
-    padding: 80px 0 40px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 48px;
-  }
-  .hero-photo {
-    flex-shrink: 0;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #e8e8e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  }
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .hero-photo .fallback {
-    font-size: 56px;
-    font-weight: 700;
-    color: #999;
-  }
-  .hero-text { flex: 1; }
-  .hero-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--accent);
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
-  }
-  .hero h1 {
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-  .hero-subtitle {
-    font-size: 17px;
-    color: var(--text-light);
-    line-height: 1.8;
-    max-width: 640px;
-  }
+        .eyebrow {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            opacity: .76
+        }
 
-  /* How I Work */
-  .how-section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-  .section-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 28px;
-    letter-spacing: -0.3px;
-  }
-  .how-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-  .how-card {
-    background: var(--card-bg);
-    border-radius: 8px;
-    padding: 20px 16px;
-    text-align: center;
-    transition: background var(--transition);
-  }
-  .how-card:hover { background: var(--card-hover); }
-  .how-step {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: var(--accent);
-    color: #fff;
-    border-radius: 50%;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .how-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-  .how-card p { font-size: 12.5px; color: var(--text-light); line-height: 1.6; }
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.12;
+            margin: 12px 0 8px;
+            letter-spacing: -.045em
+        }
 
-  /* Profile Callout */
-  .profile-callout {
-    background: var(--callout-bg);
-    border-left: 3px solid var(--accent);
-    border-radius: 4px;
-    padding: 20px 24px;
-    margin: 32px 0;
-  }
-  .profile-callout .label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .profile-callout p {
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.8;
-  }
+        .hero .role {
+            font-size: 21px;
+            font-weight: 700;
+            margin: 0 0 24px;
+            color: #dbeafe
+        }
 
-  /* Profile Section */
-  .profile-section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .hero .summary {
+            max-width: 830px;
+            font-size: 16px;
+            color: #edf4ff;
+            margin: 0
+        }
 
-  .profile-block h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 24px;
+            margin-top: 28px;
+            font-size: 13px;
+            color: #d9e8fb
+        }
 
-  .career-item { margin-bottom: 20px; }
-  .career-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-  .career-company { font-size: 15px; font-weight: 600; }
-  .career-period { font-size: 13px; color: var(--text-muted); }
-  .career-desc { font-size: 13.5px; color: var(--text-light); }
-  .career-desc li { margin-left: 16px; margin-bottom: 2px; }
+        .wrap {
+            padding: 0 72px 72px
+        }
 
-  .edu-item, .etc-item { margin-bottom: 12px; }
-  .edu-name { font-size: 14px; font-weight: 500; }
-  .edu-detail { font-size: 13px; color: var(--text-light); }
+        .section {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--line)
+        }
 
-  /* What I Solve */
-  .solve-section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-  .solve-card {
-    background: var(--card-bg);
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 16px;
-    transition: background var(--transition);
-  }
-  .solve-card:hover { background: var(--card-hover); }
-  .solve-number {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-  .solve-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-  .solve-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 10px; }
-  .solve-projects { display: flex; gap: 8px; flex-wrap: wrap; }
-  .solve-tag {
-    font-size: 12px;
-    padding: 3px 10px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    border-radius: 4px;
-    font-weight: 500;
-  }
+        .section:last-child {
+            border-bottom: 0
+        }
 
-  /* Projects Section */
-  .projects-section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .project-card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 28px 24px;
-    cursor: pointer;
-    transition: all var(--transition);
-    border: 1px solid transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .project-card:hover {
-    background: var(--card-hover);
-    border-color: var(--border);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-  }
-  .project-card-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  .project-card-title h3 { font-size: 16px; font-weight: 600; margin: 0; }
-  .project-card .arrow {
-    font-size: 15px;
-    color: var(--text-muted);
-    flex-shrink: 0;
-    margin-left: 8px;
-    transition: all var(--transition);
-  }
-  .project-card:hover .arrow { color: var(--accent); transform: translateX(3px); }
-  .project-card .role-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-  .role-chip {
-    font-size: 11.5px;
-    padding: 3px 9px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    border-radius: 4px;
-    font-weight: 500;
-  }
-  .project-card .contribution {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .contribution-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    width: 80px;
-    flex-shrink: 0;
-  }
-  .contribution-bar-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-  .project-card p { font-size: 13.5px; color: var(--text-light); line-height: 1.6; margin-bottom: 0; }
+        .section-head {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 26px;
+            margin-bottom: 28px
+        }
 
-  /* Contact Section */
-  .contact-section { padding: 48px 0 80px; }
-  .contact-list { display: flex; gap: 24px; flex-wrap: wrap; }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: var(--text-light);
-    text-decoration: none;
-    transition: color var(--transition);
-  }
-  .contact-item:hover { color: var(--accent); }
-  .contact-icon { font-size: 16px; }
+        .num {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .12em;
+            color: var(--brand)
+        }
 
-  /* === Project Detail Page === */
-  .detail-nav {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
-    z-index: 100;
-  }
-  .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    color: var(--text-light);
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-family: inherit;
-    transition: color var(--transition);
-  }
-  .back-btn:hover { color: var(--accent); }
+        h2 {
+            font-size: 28px;
+            line-height: 1.28;
+            margin: 0;
+            letter-spacing: -.035em
+        }
 
-  .detail-cover {
-    width: 100%;
-    height: 280px;
-    background: var(--card-bg);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .detail-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .detail-cover .cover-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: var(--text-muted);
-  }
-  .detail-cover .cover-placeholder .icon {
-    font-size: 36px;
-    opacity: 0.4;
-  }
-  .detail-cover .cover-placeholder p {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
+        .lead {
+            color: var(--muted);
+            margin: 8px 0 0
+        }
 
-  .detail-hero {
-    padding: 36px 0 28px;
-    border-bottom: 1px solid var(--border);
-  }
-  .detail-hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
-  .detail-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-  .detail-meta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .detail-meta span { display: flex; align-items: center; gap: 4px; }
-  .detail-meta .role-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-  .detail-meta .contribution-label {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .detail-meta .contribution-bar {
-    width: 60px;
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    display: inline-block;
-  }
-  .detail-meta .contribution-bar-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-  }
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px
+        }
 
-  .detail-section { padding: 32px 0; border-bottom: 1px solid var(--border); }
-  .detail-section:last-child { border-bottom: none; padding-bottom: 80px; }
-  .detail-section h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-  .detail-section p, .detail-section li {
-    font-size: 15px;
-    color: var(--text-light);
-    line-height: 1.8;
-  }
-  .detail-section ul { list-style: none; padding: 0; }
-  .detail-section ul li { padding-left: 16px; position: relative; margin-bottom: 4px; }
-  .detail-section ul li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-  }
+        .pill {
+            border: 1px solid #bfd3ee;
+            background: #f5f9ff;
+            color: #18467e;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 800
+        }
 
-  .detail-callout {
-    background: var(--callout-bg);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin: 16px 0;
-  }
-  .detail-callout p, .detail-callout li {
-    font-size: 14px;
-    color: var(--text);
-  }
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px
+        }
 
-  .code-block {
-    background: var(--code-bg);
-    border-radius: 6px;
-    padding: 14px 18px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 13.5px;
-    margin: 12px 0;
-    color: var(--text);
-    line-height: 1.7;
-    white-space: pre-wrap;
-  }
+        .role-card {
+            background: var(--soft);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 20px
+        }
 
-  .result-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 16px 0;
-  }
-  .result-card {
-    background: var(--card-bg);
-    border-radius: 8px;
-    padding: 16px 20px;
-  }
-  .result-card .label { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
-  .result-card .value { font-size: 18px; font-weight: 700; color: var(--accent); }
-  .result-card .desc { font-size: 12.5px; color: var(--text-light); margin-top: 4px; }
+        .role-card b {
+            display: block;
+            margin-bottom: 6px
+        }
 
-  .contribution-list { margin-top: 16px; }
-  .contribution-item { margin-bottom: 16px; }
-  .contribution-item strong {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .contribution-item p { font-size: 14px; color: var(--text-light); margin: 0; }
+        .role-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px
+        }
 
-  .notice {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-bottom: 24px;
-    padding: 10px 14px;
-    background: #fef9ef;
-    border-radius: 6px;
-    border-left: 3px solid #f0c36d;
-  }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 28px
+        }
 
-  .learned-section {
-    background: var(--callout-bg);
-    border-radius: 8px;
-    padding: 24px;
-    margin-top: 16px;
-  }
-  .learned-section h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
-  .learned-section p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+        .metric {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 17px;
+            background: #fff
+        }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero { flex-direction: column; text-align: center; gap: 24px; }
-    .hero-photo { width: 140px; height: 140px; }
-    .hero h1 { font-size: 28px; }
-    .how-grid { grid-template-columns: repeat(2, 1fr); }
-    .profile-grid { grid-template-columns: 1fr; gap: 24px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .result-grid { grid-template-columns: 1fr; }
-    .contact-list { flex-direction: column; gap: 12px; }
-    .detail-hero h1 { font-size: 24px; }
-  }
+        .metric strong {
+            display: block;
+            font-size: 25px;
+            color: var(--brand2);
+            letter-spacing: -.04em
+        }
 
-  @media (max-width: 480px) {
-    .how-grid { grid-template-columns: 1fr; }
-    .container { padding: 0 16px; }
-  }
+        .metric span {
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        .project {
+            padding: 34px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .project:first-of-type {
+            border-top: 0;
+            padding-top: 0
+        }
+
+        .project-top {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: start
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin: 0;
+            letter-spacing: -.03em
+        }
+
+        .project .period {
+            white-space: nowrap;
+            font-size: 13px;
+            color: var(--muted);
+            padding-top: 5px
+        }
+
+        .tag {
+            display: inline-block;
+            margin: 8px 6px 0 0;
+            background: #ecf4ff;
+            color: #18467e;
+            border-radius: 6px;
+            padding: 4px 9px;
+            font-size: 11px;
+            font-weight: 800
+        }
+
+        .project-desc {
+            margin: 18px 0 20px;
+            color: #475467
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns: 1.35fr .9fr;
+            gap: 34px
+        }
+
+        .label {
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--brand);
+            letter-spacing: .1em;
+            margin: 0 0 8px
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 19px
+        }
+
+        li {
+            margin: 6px 0;
+            color: #344054
+        }
+
+        .results {
+            background: var(--soft);
+            border-left: 4px solid var(--brand);
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0
+        }
+
+        .results li {
+            font-size: 14px
+        }
+
+        .deliver {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .deliver b {
+            color: #344054
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .skills span {
+            padding: 8px 11px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .note {
+            padding: 20px;
+            border-radius: 12px;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #7c5d12;
+            font-size: 13px
+        }
+
+        .footer {
+            background: #101828;
+            color: #d0d5dd;
+            padding: 36px 72px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .footer strong {
+            color: white
+        }
+
+
+        .career-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .career-card {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 24px;
+            background: #fff;
+        }
+
+        .career-head {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            align-items: start;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .career-company {
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -.02em;
+        }
+
+        .career-type,
+        .career-location,
+        .career-total {
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .career-period {
+            color: var(--muted);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .career-timeline {
+            margin-top: 20px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .career-role {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .career-role:before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--brand);
+        }
+
+        .career-role:after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 22px;
+            bottom: -18px;
+            width: 1px;
+            background: var(--line);
+        }
+
+        .career-role:last-child:after {
+            display: none;
+        }
+
+        .career-role-title {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .career-role-period {
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .career-role-skill {
+            margin-top: 8px;
+            color: #344054;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        @media(max-width:760px) {
+            .career-head {
+                grid-template-columns: 1fr;
+            }
+
+            .career-period {
+                white-space: normal;
+            }
+        }
+
+        @media(max-width:760px) {
+
+            .hero,
+            .wrap {
+                padding-left: 24px;
+                padding-right: 24px
+            }
+
+            .hero h1 {
+                font-size: 38px
+            }
+
+            .section-head {
+                grid-template-columns: 1fr;
+                gap: 4px
+            }
+
+            .role-grid,
+            .metrics,
+            .cols {
+                grid-template-columns: 1fr
+            }
+
+            .project-top {
+                grid-template-columns: 1fr
+            }
+
+            .footer {
+                padding: 28px 24px;
+                display: block
+            }
+
+            .metric strong {
+                font-size: 23px
+            }
+        }
+
+        @media print {
+            body {
+                background: white
+            }
+
+            .sheet {
+                box-shadow: none;
+                max-width: none
+            }
+
+            .section {
+                break-inside: auto
+            }
+
+            .project {
+                break-inside: avoid
+            }
+
+            .hero {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact
+            }
+
+            .results,
+            .role-card,
+            .metric {
+                break-inside: avoid
+            }
+        }
+    
+
+/* Interactive portfolio layer */
+:root{--surface:#ffffff;--surface-2:#f6f8fb;--glass:rgba(255,255,255,.82);--glow:rgba(23,92,211,.22)}
+html{scroll-padding-top:88px}
+body{transition:background .35s ease,color .35s ease}
+body.dark{--ink:#eef4ff;--muted:#aab7ca;--line:#2c3b50;--soft:#172235;--card:#152033;--surface:#101827;--surface-2:#162236;--glass:rgba(16,24,39,.86);--glow:rgba(91,154,255,.28);background:#09111f;color:var(--ink)}
+body.dark .sheet,body.dark .career-card,body.dark .metric,body.dark .skills span{background:var(--surface)}
+body.dark .project-desc,body.dark li,body.dark .career-role-skill{color:#d5deeb}
+body.dark .tag{background:#20334f;color:#cfe2ff}
+body.dark .dock,body.dark .utility-bar{background:var(--glass);border-color:#304157}
+.scroll-progress{position:fixed;z-index:1000;left:0;right:0;top:0;height:4px;background:transparent}.scroll-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#69a6ff,#175cd3,#16a085);box-shadow:0 0 16px var(--glow)}
+.dock{position:fixed;z-index:900;top:22px;left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:6px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:var(--glass);box-shadow:0 12px 34px rgba(16,24,40,.15);backdrop-filter:blur(18px);transition:.3s}
+.dock a{text-decoration:none;padding:8px 13px;border-radius:999px;font-size:12px;font-weight:800;color:#526176;transition:.25s}.dock a span{opacity:.52;margin-right:5px}.dock a:hover,.dock a.active{color:#fff;background:var(--brand);transform:translateY(-1px)}
+.utility-bar{position:fixed;z-index:900;right:22px;bottom:22px;display:flex;gap:7px;padding:7px;border:1px solid var(--line);border-radius:14px;background:var(--glass);box-shadow:0 12px 35px rgba(16,24,40,.16);backdrop-filter:blur(18px)}
+.utility-bar button{border:0;background:transparent;color:var(--ink);font-weight:800;padding:8px 10px;border-radius:9px;cursor:pointer}.utility-bar button:hover{background:var(--soft)}
+.hero{min-height:620px;display:flex;flex-direction:column;justify-content:center}.hero>*{position:relative;z-index:2}.hero:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 28% 32%,rgba(105,166,255,.32),transparent 26%),radial-gradient(circle at 72% 70%,rgba(22,160,133,.23),transparent 25%);animation:heroMove 12s ease-in-out infinite alternate}.hero-orbit i{position:absolute;border:1px solid rgba(255,255,255,.14);border-radius:50%;animation:orbit 16s linear infinite}.hero-orbit i:nth-child(1){width:500px;height:500px;right:-170px;top:-150px}.hero-orbit i:nth-child(2){width:360px;height:360px;right:-90px;top:-70px;animation-direction:reverse}.hero-orbit i:nth-child(3){width:220px;height:220px;right:-20px;top:0}.hero-actions{display:flex;gap:10px;margin-top:26px}.hero-actions a,.hero-actions button{font:inherit;font-size:13px;font-weight:850;padding:11px 15px;border-radius:10px;cursor:pointer;text-decoration:none;transition:.25s}.primary-cta{background:#fff;color:#12355e}.primary-cta:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.16)}.ghost-cta{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff}.ghost-cta:hover{background:rgba(255,255,255,.16)}
+@keyframes heroMove{to{transform:translate3d(3%,2%,0) scale(1.04)}}@keyframes orbit{to{transform:rotate(360deg)}}
+.section{position:relative}.section-head h2:after{content:"";display:block;width:42px;height:3px;margin-top:12px;border-radius:3px;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .35s}.section:hover .section-head h2:after{width:92px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+.role-card,.career-card{transition:transform .28s ease,box-shadow .28s ease,border-color .28s}.role-card:hover,.career-card:hover{transform:translateY(-4px);border-color:#b9c7da;box-shadow:0 18px 42px rgba(16,24,40,.1)}
+.project-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px;position:sticky;top:82px;z-index:50;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--glass);backdrop-filter:blur(16px);box-shadow:0 8px 26px rgba(16,24,40,.08)}
+.filter-group{display:flex;gap:6px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;cursor:pointer;transition:.2s}.filter:hover,.filter.active{background:var(--brand);border-color:var(--brand);color:white}.search-box{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:7px 10px}.search-box input{border:0;outline:0;background:transparent;color:var(--ink);width:155px;font:inherit;font-size:12px}.project-count{text-align:right;color:var(--muted);font-size:12px;margin-bottom:3px}.project-count strong{font-size:18px;color:var(--brand)}
+.project{transition:opacity .3s,transform .3s,border-color .3s}.project.hidden{display:none}.project-top{cursor:pointer;padding:12px 14px;margin:-12px -14px;border-radius:12px;transition:.25s}.project-top:hover{background:var(--soft)}.project-toggle{margin-left:auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--brand);font-size:20px;cursor:pointer;transition:.3s}.project.open .project-toggle{transform:rotate(180deg);background:var(--brand);color:#fff}.project-detail{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .42s ease,opacity .32s ease}.project-detail>*{overflow:hidden}.project.open .project-detail{grid-template-rows:1fr;opacity:1}.project.open{border-color:#b9c7da}
+.skills span{cursor:pointer;transition:.2s}.skills span:hover,.skills span.selected{background:var(--brand);color:white;border-color:var(--brand);transform:translateY(-2px)}
+.toast{position:fixed;z-index:1200;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;padding:10px 14px;border-radius:10px;background:#101828;color:#fff;font-size:12px;font-weight:700;transition:.3s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.dock{top:auto;bottom:18px}.utility-bar{right:12px;top:12px;bottom:auto}.utility-bar #expandAll{display:none}.project-toolbar{top:12px;align-items:stretch;flex-direction:column}.search-box input{width:100%}.hero{min-height:560px}}
+@media(max-width:600px){.dock a{padding:8px 10px}.dock a span{display:none}.hero-actions{flex-wrap:wrap}.project-toolbar{position:relative;top:auto}.filter-group{overflow:auto;flex-wrap:nowrap;padding-bottom:2px}.filter{white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* Stability fixes */
+.project-detail{display:block!important;max-height:0!important;overflow:hidden!important;opacity:0!important;visibility:hidden;transform:translateY(-6px);transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .25s ease,transform .35s ease,visibility 0s linear .55s!important}
+.project.open .project-detail{max-height:1200px!important;opacity:1!important;visibility:visible;transform:none;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .3s ease .08s,transform .35s ease,visibility 0s!important}
+.project-detail>*{overflow:visible!important}
+.project[tabindex]{outline:none}.project:focus-visible{outline:3px solid rgba(23,92,211,.3);outline-offset:5px;border-radius:10px}
+.project-top{grid-template-columns:minmax(0,1fr) auto auto!important;align-items:center}.project-top>div:first-child{min-width:0}.project-toggle{grid-column:3;grid-row:1;margin-left:0}.project .period{grid-column:2;grid-row:1}
+.project-toolbar+ .project-count{margin-top:2px}
+body.dark .project-top:hover{background:#172235}body.dark .search-box input::placeholder{color:#8492a6}
+@media(max-width:760px){.project-top{grid-template-columns:minmax(0,1fr) auto!important}.project .period{grid-column:1;grid-row:2;padding-top:1px}.project-toggle{grid-column:2;grid-row:1/3}.project.open .project-detail{max-height:1800px!important}}
+@media print{.dock,.utility-bar,.scroll-progress,.project-toolbar,.project-count,.hero-actions,.hero-orbit,.project-toggle{display:none!important}.reveal{opacity:1!important;transform:none!important}.project-detail,.project.open .project-detail{max-height:none!important;opacity:1!important;visibility:visible!important;transform:none!important}}
 </style>
 </head>
 <body>
-
-<!-- ==================== MAIN PAGE ==================== -->
-<div id="main-page" class="page active">
-
-  <!-- Hero -->
-  <div class="container">
-    <section class="hero">
-      <div class="hero-photo">
-        <img src="profile.jpg" alt="염종협" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';">
-        <span class="fallback" style="display:none;">염</span>
-      </div>
-      <div class="hero-text">
-        <div class="hero-name">염종협</div>
-        <h1>IT Planner</h1>
-        <p class="hero-subtitle">
-          저는 기존 IT 시스템과 서비스 구조를 분석하고 문제를 구조화하여<br>
-          업무 프로세스와 서비스 운영 효율을 개선하는 솔루션을 제안합니다.
-        </p>
-      </div>
-    </section>
-  </div>
-
-  <!-- How I Work -->
-  <div class="container">
-    <section class="how-section">
-      <h2 class="section-title">How I Work</h2>
-      <div class="how-grid">
-        <div class="how-card">
-          <div class="how-step">1</div>
-          <h3>System Analysis</h3>
-          <p>기존 시스템과 데이터 흐름을 먼저 이해합니다.</p>
-        </div>
-        <div class="how-card">
-          <div class="how-step">2</div>
-          <h3>Problem Structuring</h3>
-          <p>시스템 흐름과 데이터 구조를 기반으로 문제 발생 지점을 재구성합니다.</p>
-        </div>
-        <div class="how-card">
-          <div class="how-step">3</div>
-          <h3>Context-based Solution</h3>
-          <p>기술적 제약과 운영 환경을 고려해 실행 가능한 솔루션을 설계합니다.</p>
-        </div>
-        <div class="how-card">
-          <div class="how-step">4</div>
-          <h3>Validation</h3>
-          <p>프로토타입 또는 데이터에 기반하여 솔루션을 검증합니다.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Profile Callout -->
-  <div class="container">
-    <div class="profile-callout">
-      <div class="label">IT Planner / Product Owner</div>
-      <p>
-        기존 시스템과 서비스 구조를 분석해 문제의 발생 지점을 재구성하고<br>
-        플랫폼 기능 설계와 업무 프로세스 개선을 통해<br>
-        서비스 운영 효율을 높이는 프로젝트를 수행해왔습니다.
-      </p>
-    </div>
-  </div>
-
-  <!-- Profile -->
-  <div class="container">
-    <section class="profile-section">
-      <h2 class="section-title">Profile</h2>
-      <div class="profile-grid">
-        <div class="profile-block">
-          <h3>경력 (총 2년 10개월)</h3>
-          <div class="career-item">
-            <div class="career-header">
-              <span class="career-company">솔루엠</span>
-              <span class="career-period">2025.3 - 현재</span>
-            </div>
-            <div class="career-desc">
-              <ul>
-                <li>글로벌 리테일 IoT 플랫폼 SSP Product Owner 수행 및 Store Dashboard 기획</li>
-                <li>레거시 시스템 분석 및 IoT Device 관리 구조 개선</li>
-                <li>AI 설계 도구 도입을 통해 개발 프로세스 리드타임 4주 → 1~2주 단축</li>
-              </ul>
-            </div>
-          </div>
-          <div class="career-item">
-            <div class="career-header">
-              <span class="career-company">서원정보</span>
-              <span class="career-period">2023.6 - 2025.02</span>
-            </div>
-            <div class="career-desc">
-              <ul>
-                <li>현대엔지니어링 통합 품질관리 포탈 구축 프로젝트 참여</li>
-                <li>CubeX PaaS 플랫폼 기획 및 서비스 구조 설계</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="profile-block">
-          <h3>학력</h3>
-          <div class="edu-item">
-            <div class="edu-name">한국공학대학교</div>
-            <div class="edu-detail">미디어디자인공학 | 2018.3 - 2024.2</div>
-          </div>
-
-          <h3 style="margin-top:24px;">외국어</h3>
-          <div class="edu-item">
-            <div class="edu-name">비즈니스 회화</div>
-            <div class="edu-detail">OPic IM1 | 2023.12</div>
-          </div>
-
-          <h3 style="margin-top:24px;">기타</h3>
-          <div class="etc-item">
-            <div class="edu-name">글로벌 협업 경험</div>
-            <div class="edu-detail">인도 개발 조직(STI)과 싱가포르 마케팅 리더와 협업하며 플랫폼 기능 기획과 프로젝트 진행을 조율</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- What I Solve -->
-  <div class="container">
-    <section class="solve-section">
-      <h2 class="section-title">What I Solve</h2>
-
-      <div class="solve-card">
-        <div class="solve-number">01</div>
-        <h3>레거시 시스템의 구조적 문제</h3>
-        <p>기존 시스템은 기능 중심으로 확장되면서 서비스 운영 관점에서 구조적 한계를 가지는 경우가 많았습니다. 저는 레거시 시스템의 API 구조와 데이터 모델을 분석하여 서비스 운영 관점에서 필요한 플랫폼 구조를 재설계했습니다.</p>
-        <div class="solve-projects">
-          <span class="solve-tag">리테일 IoT 플랫폼 SSP</span>
-          <span class="solve-tag">현대엔지니어링 품질관리 포탈</span>
-        </div>
-      </div>
-
-      <div class="solve-card">
-        <div class="solve-number">02</div>
-        <h3>운영 가시성 부족 문제</h3>
-        <p>시스템이 존재하더라도 실제 운영자가 전체 상황을 파악하기 어려운 경우가 많았습니다. 저는 운영자가 문제를 빠르게 인지하고 대응할 수 있도록 운영 중심의 정보 구조와 모니터링 UX를 설계했습니다.</p>
-        <div class="solve-projects">
-          <span class="solve-tag">SSP Store Dashboard</span>
-          <span class="solve-tag">Digital Twin 기반 Map View</span>
-        </div>
-      </div>
-
-      <div class="solve-card">
-        <div class="solve-number">03</div>
-        <h3>개발 프로세스 비효율 문제</h3>
-        <p>AI 설계 도구를 활용해 데모 애플리케이션을 제작하는 과정에서 기존 개발 프로세스의 의사결정 리드타임이 길다는 문제를 발견했습니다. PRD 기반 워킹 프로토타입을 활용한 검증 방식을 실험하여 기획 검증 단계의 의사결정 구조를 개선했습니다.</p>
-        <div class="solve-projects">
-          <span class="solve-tag">AI 기반 프로토타입 검증 프로세스 도입</span>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Projects -->
-  <div class="container">
-    <section class="projects-section">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" onclick="showProject('ssp')">
-          <div class="project-card-title">
-            <h3>리테일 IoT 플랫폼 SSP</h3>
-            <span class="arrow">&#8594;</span>
-          </div>
-          <div class="role-chips">
-            <span class="role-chip">서비스 기획</span>
-            <span class="role-chip">프로젝트 매니징</span>
-            <span class="role-chip">데이터 구조 설계</span>
-            <span class="role-chip">플랫폼 설계</span>
-          </div>
-          <div class="contribution">
-            <span>기여도 100%</span>
-            <div class="contribution-bar"><div class="contribution-bar-fill" style="width:100%"></div></div>
-          </div>
-          <p>글로벌 리테일 매장 IoT 디바이스 통합 관리 차세대 플랫폼. Store Dashboard 및 Digital Twin 기반 Map View 기획.</p>
-        </div>
-        <div class="project-card" onclick="showProject('ai')">
-          <div class="project-card-title">
-            <h3>AI 기반 프로토타입 검증 프로세스</h3>
-            <span class="arrow">&#8594;</span>
-          </div>
-          <div class="role-chips">
-            <span class="role-chip">프로세스 개선</span>
-            <span class="role-chip">서비스 기획</span>
-          </div>
-          <div class="contribution">
-            <span>기여도 100%</span>
-            <div class="contribution-bar"><div class="contribution-bar-fill" style="width:100%"></div></div>
-          </div>
-          <p>PRD 기반 워킹 프로토타입을 활용하여 기획 검증 리드타임 4주 → 1~2주 단축.</p>
-        </div>
-        <div class="project-card" onclick="showProject('qportal')">
-          <div class="project-card-title">
-            <h3>현대엔지니어링 품질관리 포탈</h3>
-            <span class="arrow">&#8594;</span>
-          </div>
-          <div class="role-chips">
-            <span class="role-chip">서비스 기획</span>
-            <span class="role-chip">프로젝트 매니징</span>
-          </div>
-          <div class="contribution">
-            <span>기여도 70%</span>
-            <div class="contribution-bar"><div class="contribution-bar-fill" style="width:70%"></div></div>
-          </div>
-          <p>통합 품질관리 포탈 구축. 보고서 작성 53% 감소, 결재 반려 90% 감소.</p>
-        </div>
-        <div class="project-card" onclick="showProject('cubex')">
-          <div class="project-card-title">
-            <h3>CubeX PaaS 플랫폼</h3>
-            <span class="arrow">&#8594;</span>
-          </div>
-          <div class="role-chips">
-            <span class="role-chip">서비스 기획</span>
-            <span class="role-chip">플랫폼 설계</span>
-          </div>
-          <div class="contribution">
-            <span>기여도 60%</span>
-            <div class="contribution-bar"><div class="contribution-bar-fill" style="width:60%"></div></div>
-          </div>
-          <p>Kubernetes 기반 클라우드 네이티브 PaaS 솔루션 UX 구조 설계 및 주요 기능 기획.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Contact -->
-  <div class="container">
-    <section class="contact-section">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-list">
-        <a class="contact-item" href="mailto:hyeop97@gmail.com">
-          <span class="contact-icon">&#9993;&#65039;</span> hyeop97@gmail.com
-        </a>
-        <a class="contact-item" href="tel:+821080600219">
-          <span class="contact-icon">&#128241;</span> +82 10-8060-0219
-        </a>
-        <a class="contact-item" href="https://www.linkedin.com/in/yeomjonghyeop" target="_blank">
-          <span class="contact-icon">&#128279;</span> LinkedIn
-        </a>
-      </div>
-    </section>
-  </div>
+<div aria-hidden="true" class="scroll-progress"><span></span></div>
+<nav aria-label="문서 탐색" class="dock">
+<a data-target="role" href="#role"><span>01</span>Role</a>
+<a data-target="experience" href="#experience"><span>02</span>경력</a>
+<a data-target="projects" href="#projects"><span>03</span>프로젝트</a>
+<a data-target="capability" href="#capability"><span>04</span>역량</a>
+</nav>
+<div class="utility-bar">
+<button aria-label="테마 전환" id="themeToggle" type="button">◐</button>
+<button aria-label="프로젝트 전체 펼치기" id="expandAll" type="button">전체 펼치기</button>
+<button aria-label="맨 위로" id="toTop" type="button">↑</button>
+</div>
+<main class="sheet">
+<header class="hero">
+<div class="eyebrow">Career Portfolio · 2023.06–2026.09.01</div>
+<h1>경력기술서</h1>
+<p class="role">TPM · PM · 제품전략기획</p>
+<p class="summary">전략기획그룹의 PM으로서 자사 SaaS Platform과 Ontology 기반 AI 플랫폼의 제품 전략, 로드맵 및 제품화를 담당합니다. 선반 재고 모니터링
+                카메라·센서 솔루션과 Retail IoT 신규 Feature를 대상으로 고객과 글로벌 법인의 요구를 제품 시나리오, 정책, 기능 범위 및 개발 요구사항으로 구체화하고, 국내외
+                제품·개발·사업 조직의 실행을 조율합니다.</p>
+<div class="hero-meta"><span>Retail IoT · SaaS · AI Platform</span><span>Product Strategy · Technical
+                    PM</span><span>㈜솔루엠 | 2025.03–현재</span></div>
+<div class="hero-actions"><a class="primary-cta" href="#projects">프로젝트 살펴보기 <b>↓</b></a><button class="ghost-cta" id="copySummary" type="button">소개 문구 복사</button></div><div aria-hidden="true" class="hero-orbit"><i></i><i></i><i></i></div></header>
+<div class="wrap">
+<section class="section" id="role">
+<div class="section-head">
+<div class="num">01 · ROLE</div>
+<div>
+<h2>제품과 기술 사이의 실행을 설계하는 PM</h2>
+<p class="lead">정보의 시각화 역량을 활용하여 제품 정책과 기술 요구사항을 실제 사용 흐름으로 검증하는 수단으로 활용합니다.</p>
+</div>
+</div>
+<div class="pill-row"><span class="pill">TPM</span><span class="pill">PM</span><span class="pill">제품전략기획</span></div>
+<div class="role-grid" style="margin-top:24px">
+<div class="role-card reveal"><b>제품 전략 및 로드맵</b>
+<p>시장·고객·법인 요구와 내부 기술 자산을 연결해 제품 방향, 우선순위, MRD·PRD 및 개발 Scope를 정의합니다.</p>
+</div>
+<div class="role-card reveal"><b>Technical Product Management</b>
+<p>HW·FW·Gateway·Server·API·Web·Mobile의 역할과 데이터 흐름을 정의하고 기술 제약을 제품화 단계로 전환합니다.</p>
+</div>
+<div class="role-card reveal"><b>제품 정책 및 시나리오</b>
+<p>정상 Flow뿐 아니라 설치, 재할당, 물류, 장애 및 예외상황까지 포함한 운영정책과 제품 시나리오를 설계합니다.</p>
+</div>
+<div class="role-card reveal"><b>PM 및 커뮤니케이션</b>
+<p>전략기획, 제품, UX, 개발, 영업, 해외 법인 및 고객사 사이에서 목표·범위·리스크·의사결정을 조율합니다.</p>
+</div>
+<div class="role-card reveal"><b>리더십</b>
+<p>프로덕트 디자이너 2명의 기획자 직무 전환 멘토 역할을 수행하며 과제 배분, 제품 도메인 교육, 산출물 검토 및 업무 방향 설정을 담당합니다.</p>
+</div>
+<div class="role-card reveal"><b>PoC 및 Prototype 검증</b>
+<p>Working Prototype과 현장 PoC를 활용해 개발 전 제품 시나리오, 기술 타당성 및 이해관계자 기대 수준을 검증합니다.</p>
+</div>
+</div>
+</section>
+<section class="section" id="experience">
+<div class="section-head">
+<div class="num">02 · EXPERIENCE</div>
+<div>
+<h2>경력</h2>
+<p class="lead">제품 전략과 서비스 기획을 기반으로 플랫폼 및 엔터프라이즈 시스템 구축 경험을 이어왔습니다.</p>
+</div>
+</div>
+<div class="career-list">
+<div class="career-card reveal">
+<div class="career-head">
+<div>
+<div class="career-company">SOLUM</div>
+<div class="career-type">정규직</div>
+<div class="career-location">대한민국 경기도 용인 · 대면근무</div>
+</div>
+<div class="career-period">2025.03 – 현재</div>
+</div>
+<div class="career-timeline">
+<div class="career-role">
+<div class="career-role-title">Product Manager - Business &amp; Product Strategy Group
+                                </div>
+<div class="career-role-period">2026.05 – 현재</div>
+</div>
+<div class="career-role">
+<div class="career-role-title">Service Planner - CX Group</div>
+<div class="career-role-period">2025.03 – 2026.04 · 1년 2개월</div>
+</div>
+</div>
+</div>
+<div class="career-card reveal">
+<div class="career-head">
+<div>
+<div class="career-company">㈜서원정보</div>
+<div class="career-type">서비스 기획 · 정규직</div>
+<div class="career-location">대한민국 서울 · 대면근무</div>
+</div>
+<div class="career-period">2023.06 – 2025.03 · 1년 10개월</div>
+</div>
+<div class="career-timeline">
+<div class="career-role">
+<div class="career-role-title">서비스 기획</div>
+<div class="career-role-period">엔터프라이즈 포털 및 Cloud Native PaaS 구축 프로젝트</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="projects">
+<div class="section-head">
+<div class="num">03 · PROJECTS</div>
+<div>
+<h2>주요 프로젝트</h2>
+<p class="lead">2023년 6월부터 2026년 9월 1일까지 수행한 제품 전략, 제품화, 플랫폼 개선 및 엔터프라이즈 시스템 구축 경험입니다.</p>
+</div>
 </div>
 
-<!-- ==================== SSP PROJECT ==================== -->
-<div id="ssp-page" class="page">
-  <div class="detail-cover">
-    <img src="img_ssp.jpg" alt="SSP 커버 이미지" onerror="this.style.display='none'; this.parentElement.querySelector('.cover-placeholder').style.display='flex';">
-    <div class="cover-placeholder" style="display:none;">
-      <span class="icon">&#128247;</span>
-      <p>img_ssp.jpg 파일을 같은 폴더에 넣어주세요</p>
-    </div>
-  </div>
-  <div class="container">
-    <nav class="detail-nav">
-      <button class="back-btn" onclick="showMain()">&#8592; 이전 페이지 돌아가기</button>
-    </nav>
-    <section class="detail-hero">
-      <h1>리테일 IoT 플랫폼 SSP</h1>
-      <div class="detail-meta">
-        <div class="detail-meta-row">
-          <span>솔루엠</span>
-          <span>2025.3 - 현재</span>
-        </div>
-        <div class="role-chips">
-          <span class="role-chip">서비스 기획</span>
-          <span class="role-chip">프로젝트 매니징</span>
-          <span class="role-chip">데이터 구조 설계</span>
-          <span class="role-chip">플랫폼 설계</span>
-        </div>
-        <div class="contribution-label">
-          기여도 100%
-          <div class="contribution-bar"><div class="contribution-bar-fill" style="width:100%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Overview</h2>
-      <p>SSP는 글로벌 리테일 매장에서 사용하는 다양한 IoT 디바이스를 통합 관리하기 위한 솔루엠의 차세대 플랫폼입니다. ESL, Gateway, Vision Camera, Sensor 등 매장 내 디바이스 데이터를 기반으로 매장 운영 상황을 모니터링하고 문제 발생 시 빠르게 대응할 수 있는 운영 환경을 구축하는 것을 목표로 했습니다.</p>
-      <p style="margin-top:12px;">또한 레거시 시스템인 AIMS 운영을 유지하면서도 플랫폼 확장이 가능하도록 구조를 설계해야 하는 미션이 있었습니다. 기존 AIMS의 구조를 분석하고, 매장 운영 관점에서 Store Dashboard와 Digital Twin(Map View) 기능을 기획했습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Problem</h2>
-      <p>기존 AIMS 플랫폼의 구조적 한계:</p>
-      <ul style="margin-top:12px;">
-        <li><strong>디바이스 관리 중심의 플랫폼 구조</strong> — ESL, Gateway, Vision, Sensor 등 디바이스별 관리 기능에 초점이 맞춰져 매장 운영 관점에서 전체 상황을 파악하기 어려웠습니다. 고객사 납품 시마다 별도 대시보드를 추가 개발해야 하는 상황이 반복되었습니다.</li>
-        <li><strong>디바이스 위치 정보 관리 구조 부재</strong> — 매장 내 장애 발생 시 문제 위치를 직관적으로 파악하기 어려운 구조. 글로벌 리테일 매장의 경우 위치 기반 모니터링이 필수적이었습니다.</li>
-        <li><strong>Vision 기반 재고 감지 정확도 문제</strong> — 약 30% 수준의 오판 발생. 배터리 수명 문제로 4시간 단위 스케줄 기반 촬영 방식을 사용해 실시간 감지가 어려웠습니다.</li>
-      </ul>
-    </section>
-
-    <section class="detail-section">
-      <h2>Analysis</h2>
-      <p>기존 플랫폼의 API 구조와 데이터 모델을 분석하고 매장 운영 관점에서 필요한 정보 구조를 재정의했습니다.</p>
-      <p style="margin-top:12px;">기존 데이터 구조:</p>
-      <div class="code-block">Customer → Store → Shelf → Device</div>
-      <p>이 구조는 디바이스 관리에는 문제가 없었지만, 글로벌 리테일 매장의 층(Floor), 구역(Zone) 등 매장 공간 정보를 체계적으로 표현할 수 없어 공간 기반 모니터링 기능 구현이 어려운 구조였습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Solution</h2>
-
-      <h3 style="font-size:16px;font-weight:600;margin-bottom:12px;">1. Store Dashboard 설계</h3>
-      <p>매장 운영자가 디바이스 상태와 매장 이벤트를 한눈에 파악할 수 있는 운영 중심 대시보드 구조를 설계했습니다.</p>
-      <div class="detail-callout">
-        <ul>
-          <li>ESL 상태 요약</li>
-          <li>Gateway 연결 상태</li>
-          <li>디바이스 오류 발생 현황</li>
-          <li>매장 운영 이벤트 알림</li>
-          <li>우선 조치 필요 항목</li>
-        </ul>
-      </div>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">2. Digital Twin 기반 Map View</h3>
-      <p>기존 데이터 모델을 확장하여 위치 기반 데이터 구조를 설계했습니다.</p>
-      <div class="code-block">Customer → Store → Floor → Zone → Shelf → Device</div>
-      <p>이 구조를 기반으로 매장 공간 위에서 디바이스 상태와 이벤트를 확인할 수 있는 Digital Twin 기반 Map View 기능을 기획했습니다.</p>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">3. Vision + Load Cell 이중 검증 구조</h3>
-      <p>기존 Vision 카메라의 오판 문제를 해결하기 위해 Load Cell(무게 센서) 기반 이중 검증 구조를 제안했습니다.</p>
-      <div class="detail-callout">
-        <ul>
-          <li>Load Cell 센서가 상품 무게 변화를 감지</li>
-          <li>특정 임계값 변화 발생 시 Vision 카메라 촬영 트리거</li>
-          <li>이미지 분석 결과와 무게 데이터를 교차 검증</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Result</h2>
-      <div class="result-grid">
-        <div class="result-card">
-          <div class="label">품절 인지 시간</div>
-          <div class="value">90% 단축</div>
-          <div class="desc">2시간 이상 → 10분 내외</div>
-        </div>
-        <div class="result-card">
-          <div class="label">재고 인식 오판률</div>
-          <div class="value">30% → 5%</div>
-          <div class="desc">Load Cell 이중 검증 구조 도입</div>
-        </div>
-      </div>
-      <p style="margin-top:16px;">NRF 2026, EuroShop 등 글로벌 리테일 전시에서 차세대 플랫폼 핵심 데모로 활용되었습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Key Contribution</h2>
-      <div class="contribution-list">
-        <div class="contribution-item">
-          <strong>1. 레거시 시스템 구조 분석</strong>
-          <p>기존 AIMS 플랫폼의 API 구조와 데이터 모델을 분석하여 디바이스 관리 중심 구조의 한계를 파악하고 매장 운영 관점에서 필요한 플랫폼 구조를 도출했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>2. 위치 기반 데이터 모델 설계</strong>
-          <p>Customer → Store → Floor → Zone → Shelf → Device 구조로 확장하여 매장 공간 기반 디바이스 관리가 가능한 데이터 모델을 설계했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>3. 매장 운영 중심 플랫폼 UX 구조 설계</strong>
-          <p>Store Dashboard와 Digital Twin 기반 Map View 기능을 기획하여 디바이스 관리 중심 UI를 매장 운영 중심 모니터링 구조로 재설계했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>4. IoT 센서 데이터 기반 이벤트 구조 설계</strong>
-          <p>Vision Camera 재고 감지 오판 문제를 분석하고 Load Cell 센서를 활용한 이벤트 기반 감지 구조를 제안했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>5. 글로벌 협업 환경에서의 요구사항 조율</strong>
-          <p>한국 유지보수 조직, 인도 개발팀, 싱가포르 마케팅 조직과 협업하며 기술적 제약과 비즈니스 요구사항을 조율했습니다.</p>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="project-toolbar">
+<div aria-label="프로젝트 필터" class="filter-group" role="group">
+<button class="filter active" data-filter="all">전체</button>
+<button class="filter" data-filter="pm">Product PM</button>
+<button class="filter" data-filter="tpm">Technical PM</button>
+<button class="filter" data-filter="platform">Platform</button>
+<button class="filter" data-filter="policy">Policy</button>
 </div>
-
-<!-- ==================== AI PROJECT ==================== -->
-<div id="ai-page" class="page">
-  <div class="detail-cover">
-    <img src="img_ai.png" alt="AI 프로세스 커버 이미지" onerror="this.style.display='none'; this.parentElement.querySelector('.cover-placeholder').style.display='flex';">
-    <div class="cover-placeholder" style="display:none;">
-      <span class="icon">&#128247;</span>
-      <p>img_ai.jpg 파일을 같은 폴더에 넣어주세요</p>
-    </div>
-  </div>
-  <div class="container">
-    <nav class="detail-nav">
-      <button class="back-btn" onclick="showMain()">&#8592; 이전 페이지 돌아가기</button>
-    </nav>
-    <section class="detail-hero">
-      <h1>AI 기반 프로토타입 검증 프로세스</h1>
-      <div class="detail-meta">
-        <div class="detail-meta-row">
-          <span>솔루엠</span>
-        </div>
-        <div class="role-chips">
-          <span class="role-chip">프로세스 개선</span>
-          <span class="role-chip">서비스 기획</span>
-        </div>
-        <div class="contribution-label">
-          기여도 100%
-          <div class="contribution-bar"><div class="contribution-bar-fill" style="width:100%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Overview</h2>
-      <p>생성형 AI 설계 도구를 활용하여 데모 애플리케이션을 빠르게 제작하는 과제에서 시작된 프로젝트입니다. 진행 과정에서 기존 서비스 개발 프로세스의 의사결정 리드타임이 길어지는 문제를 발견하고, PRD 기반 워킹 프로토타입을 생성하여 기능을 검증하는 새로운 개발 프로세스를 실험했습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Problem</h2>
-      <p>기존 프로세스:</p>
-      <div class="code-block">요구사항 정의 → 와이어프레임 설계 → 디자인 제작 → 개발 전달</div>
-      <ul style="margin-top:16px;">
-        <li><strong>의사결정 리드타임 증가</strong> — 이해관계자 리뷰가 여러 차례 반복되며 기획 검증 단계에만 평균 4주 이상 소요</li>
-        <li><strong>실제 동작 검증의 어려움</strong> — 와이어프레임/디자인 시안으로는 인터랙션 오류, 사용자 흐름 문제, 기능 누락 등 검증이 어려움</li>
-        <li><strong>반복적인 수정 비용 발생</strong> — 기획 오류가 개발 단계 이후 발견되어 기획-디자인-개발 수정이 반복</li>
-      </ul>
-    </section>
-
-    <section class="detail-section">
-      <h2>Experiment</h2>
-      <h3 style="font-size:16px;font-weight:600;margin-bottom:12px;">Test A — 요구사항 직접 입력</h3>
-      <p>상위기획 부서의 요구사항을 그대로 AI 설계 도구에 입력. 요구사항 해석 오류, UI 구조 일관성 부족, 시스템 컨텍스트 반영 한계가 발생했습니다.</p>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">Test B — PRD 기반 입력</h3>
-      <p>요구사항을 PRD 형태로 재구조화하여 입력. 서비스 목적, 사용자 시나리오, 기능 정의, 화면 구조, 인터랙션 흐름, 기술적 제약을 포함시켰습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Solution</h2>
-      <p>PRD 기반 입력 방식이 더 안정적이라는 결과를 기반으로 프로세스를 재정의했습니다.</p>
-      <p style="margin-top:12px;">기존:</p>
-      <div class="code-block">요구사항 정리 → 와이어프레임 제작 → 디자인 제작 → 개발 전달</div>
-      <p style="margin-top:12px;">개선:</p>
-      <div class="code-block">PRD 작성 → AI 기반 워킹 프로토타입 생성 → 동작 검증 → 개발 전달</div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Result</h2>
-      <div class="result-grid">
-        <div class="result-card">
-          <div class="label">재설계 필요 화면 비율</div>
-          <div class="value">87% → 39%</div>
-          <div class="desc">Test A 대비 Test B 절반 이하 수준</div>
-        </div>
-        <div class="result-card">
-          <div class="label">최종 합의 도달</div>
-          <div class="value">4주 → 1~2주</div>
-          <div class="desc">의사결정 리드타임 대폭 단축</div>
-        </div>
-        <div class="result-card">
-          <div class="label">수정 반영 속도</div>
-          <div class="value">2~3일 → 1일</div>
-          <div class="desc">프로토타입 기반 빠른 수정</div>
-        </div>
-        <div class="result-card">
-          <div class="label">프로세스 변경</div>
-          <div class="value">공식화</div>
-          <div class="desc">대표이사 보고를 통해 개발 프로세스 변경 공식화</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Key Contribution</h2>
-      <div class="contribution-list">
-        <div class="contribution-item"><strong>AI 설계 도구 활용 방식 실험 설계</strong></div>
-        <div class="contribution-item"><strong>PRD 기반 입력 구조 정의</strong></div>
-        <div class="contribution-item"><strong>워킹 프로토타입 제작 및 결과 분석</strong></div>
-        <div class="contribution-item"><strong>개발 프로세스 개선안 설계</strong></div>
-        <div class="contribution-item"><strong>사업부 리더십 및 대표이사 대상 보고를 통해 프로세스 변경 공식화</strong></div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>What I Learned</h2>
-      <div class="learned-section">
-        <p>생성형 AI는 단순 작업 자동화 도구가 아닌, 기획과 개발 사이의 검증 단계를 앞당겨 의사결정 구조를 개선하는 도구로 활용될 수 있다는 점을 확인했습니다. 새로운 기술을 단순히 도입하는 것이 아니라 기존 업무 프로세스를 분석하고 조직에 맞는 방식으로 적용하는 것이 중요하다는 점을 배웠습니다.</p>
-      </div>
-    </section>
-  </div>
+<label class="search-box"><span>⌕</span><input id="projectSearch" placeholder="프로젝트·기술 검색" type="search"/></label>
+</div><div class="project-count"><strong id="visibleCount">8</strong>개의 프로젝트</div>
+<article class="project reveal open" data-category="pm platform" data-search="ontology 기반 ai 플랫폼 기획 및 제품화 tf 전략기획그룹 pm ai
+                                platform productization 2026.04. ~ map, ontology, graph database, graphrag 및 ai agent를 기반으로
+                        shelf·product·esl·camera·sensor 데이터를 연결하고, 통합 관제와 ai insight를 제공하는 자사 ai 플랫폼 제품화 프로젝트입니다. 주요 수행 product concept, target user, 핵심 가치 및 saas platform 내 역할 정의 자연어 질의, 관계 분석, 실시간 상태 조회 및 ai agent use case 기획 카메라, signage, power rail, digital twin, saas 등 5개 연계 제품 roadmap 통합 roadmap 항목을 mrd·prd와 개발과제로 연결하고 tf의 scope, r&amp;r, 이슈 및 의사결정 관리 국내외 대형 리테일 업체 대상 poc 과정에서 tpm 역할로 고객 요구사항, 기술 범위 및 검증 시나리오 커뮤니케이션 주요 성과 5개 제품 영역 의 roadmap을 하나의 제품화 관점으로 통합 선행기술을 사용자·사업 가치 중심의 ai platform concept으로 전환 국내외 대형 리테일 업체 poc를 통해 제품 시나리오와 기술 검증 범위 구체화 prd·use case·prototype·api flow 기반의 협업체계 구축 산출물 product concept &amp; vision, mrd·prd, role-based use case, ai
+                                prompt scenario, product roadmap, prototype">
+<div aria-controls="project-detail-1" aria-expanded="true" class="project-top" role="button" tabindex="0">
+<div>
+<h3>Ontology 기반 AI 플랫폼 기획 및 제품화 TF</h3><span class="tag">전략기획그룹 PM</span><span class="tag">AI
+                                Platform</span><span class="tag">Productization</span>
 </div>
-
-<!-- ==================== Q-PORTAL PROJECT ==================== -->
-<div id="qportal-page" class="page">
-  <div class="detail-cover">
-    <img src="img_qportal.png" alt="품질관리 포탈 커버 이미지" onerror="this.style.display='none'; this.parentElement.querySelector('.cover-placeholder').style.display='flex';">
-    <div class="cover-placeholder" style="display:none;">
-      <span class="icon">&#128247;</span>
-      <p>img_qportal.jpg 파일을 같은 폴더에 넣어주세요</p>
-    </div>
-  </div>
-  <div class="container">
-    <nav class="detail-nav">
-      <button class="back-btn" onclick="showMain()">&#8592; 이전 페이지 돌아가기</button>
-    </nav>
-    <section class="detail-hero">
-      <div class="notice">본 화면은 실제 서비스 화면이 아닌, 보안 및 대외비 정책을 고려하여 기능 설명을 위해 재구성한 예시 화면입니다.</div>
-      <h1>현대엔지니어링 품질관리 포탈</h1>
-      <div class="detail-meta">
-        <div class="detail-meta-row">
-          <span>서원정보</span>
-        </div>
-        <div class="role-chips">
-          <span class="role-chip">서비스 기획</span>
-          <span class="role-chip">프로젝트 매니징</span>
-        </div>
-        <div class="contribution-label">
-          기여도 70%
-          <div class="contribution-bar"><div class="contribution-bar-fill" style="width:70%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Overview</h2>
-      <p>현대엔지니어링 현장의 품질 관리 업무를 지원하기 위해 통합 품질관리 포탈(Q-Portal)을 구축하는 SI 프로젝트입니다. 기존에는 현대건설과 현대엔지니어링이 서로 다른 품질 관리 시스템을 분리 운영하고 있어 데이터 연동 문제와 업무 비효율이 발생하고 있었습니다.</p>
-      <p style="margin-top:12px;">품질 관리 업무 프로세스 단순화, 품질 지식 데이터 활용 구조 설계, 법규 및 품질 기준 변화에 대응 가능한 시스템 구조 설계를 목표로 했습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Problem</h2>
-      <ul>
-        <li><strong>품질 관리 시스템 분리 운영</strong> — 시스템 간 데이터 연동 오류, 통계 분석 기능 오류, 동일 데이터 중복 관리</li>
-        <li><strong>비효율적인 보고서 작성 프로세스</strong> — 자재 1개 → 공급업체 1개 → 보고서 1개 형태로, 공급업체 증가 시 보고서 작성 횟수 급증</li>
-        <li><strong>품질 관리 지식 데이터 활용 어려움</strong> — 체크리스트가 프로젝트 단위로 분산 관리되어 재사용 불가</li>
-        <li><strong>법규 및 품질 기준 변화 대응 어려움</strong> — 품질 시험 설정이 고정 구조로 설계되어 새로운 기준 대응 시 시스템 수정 필요</li>
-      </ul>
-    </section>
-
-    <section class="detail-section">
-      <h2>Solution</h2>
-      <h3 style="font-size:16px;font-weight:600;margin-bottom:12px;">1. 자재 공급 승인 프로세스 개선</h3>
-      <div class="code-block">자재 1개 → 다수 공급업체 등록 가능 → 하나의 보고서에서 관리</div>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">2. Knowledge Data 공유 기능 설계</h3>
-      <p>본사 품질 관리 담당자가 체크리스트를 설정하고, 현장 프로젝트에서 해당 데이터를 불러와 활용할 수 있는 구조를 설계. 품질 관리 지식이 조직 단위로 축적되는 구조를 구현했습니다.</p>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">3. 품질 시험 설정 확장</h3>
-      <p>압축 강도 시험 최대 3회 → 6회로 확장하여 고층 건물 품질 시험 대응 및 향후 법규 변경 대응이 가능한 유연한 구조를 설계했습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Result</h2>
-      <p>운영 서버 반영 전후 2개월 데이터 비교 결과:</p>
-      <div class="result-grid">
-        <div class="result-card">
-          <div class="label">보고서 작성 건수</div>
-          <div class="value">53% 감소</div>
-          <div class="desc">1,096건 → 515건</div>
-        </div>
-        <div class="result-card">
-          <div class="label">결재 반려 건수</div>
-          <div class="value">90% 감소</div>
-          <div class="desc">63건 → 6건</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Key Contribution</h2>
-      <div class="contribution-list">
-        <div class="contribution-item">
-          <strong>1. 품질 관리 업무 프로세스 분석</strong>
-          <p>현장 업무 흐름을 분석하여 반복 작업과 데이터 오류의 구조적 원인을 정의했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>2. 자재 공급 승인 프로세스 개선 기획</strong>
-          <p>공급업체별 반복 보고서 구조를 단일 통합 보고서 구조로 전환하여 보고서 작성 건수 53% 감소에 기여했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>3. Knowledge Data 공유 구조 설계</strong>
-          <p>프로젝트 단위로 분산되던 체크리스트를 조직 단위로 재사용할 수 있는 구조를 기획하여 결재 반려 건수 90% 감소에 기여했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>4. 품질 시험 설정 확장 기획</strong>
-          <p>고정 3회 구조를 최대 6회로 확장하여 법규 변화 대응이 가능한 유연한 시스템 구조를 설계했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>5. SI 프로젝트 산출물 작성 및 QA 참여</strong>
-          <p>기능 정의서 작성과 QA 과정에 참여하여 기획 의도가 개발 결과물에 반영될 수 있도록 지원했습니다.</p>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="period">2026.04. ~</div>
+<button aria-label="Ontology 기반 AI 플랫폼 기획 및 제품화 TF 상세 열기" class="project-toggle" type="button">−</button></div><div class="project-detail" id="project-detail-1">
+<p class="project-desc">Map, Ontology, Graph Database, GraphRAG 및 AI Agent를 기반으로
+                        Shelf·Product·ESL·Camera·Sensor 데이터를 연결하고, 통합 관제와 AI Insight를 제공하는 자사 AI 플랫폼 제품화 프로젝트입니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>Product Concept, Target User, 핵심 가치 및 SaaS Platform 내 역할 정의</li>
+<li>자연어 질의, 관계 분석, 실시간 상태 조회 및 AI Agent Use Case 기획</li>
+<li>카메라, Signage, Power Rail, Digital Twin, SaaS 등 5개 연계 제품 Roadmap 통합</li>
+<li>Roadmap 항목을 MRD·PRD와 개발과제로 연결하고 TF의 Scope, R&amp;R, 이슈 및 의사결정 관리</li>
+<li>국내외 대형 리테일 업체 대상 PoC 과정에서 TPM 역할로 고객 요구사항, 기술 범위 및 검증 시나리오 커뮤니케이션</li>
+</ul>
 </div>
-
-<!-- ==================== CUBEX PROJECT ==================== -->
-<div id="cubex-page" class="page">
-  <div class="detail-cover">
-    <img src="img_cubex.png" alt="CubeX 커버 이미지" onerror="this.style.display='none'; this.parentElement.querySelector('.cover-placeholder').style.display='flex';">
-    <div class="cover-placeholder" style="display:none;">
-      <span class="icon">&#128247;</span>
-      <p>img_cubex.jpg 파일을 같은 폴더에 넣어주세요</p>
-    </div>
-  </div>
-  <div class="container">
-    <nav class="detail-nav">
-      <button class="back-btn" onclick="showMain()">&#8592; 이전 페이지 돌아가기</button>
-    </nav>
-    <section class="detail-hero">
-      <div class="notice">본 화면은 실제 서비스 화면이 아닌, 보안 및 대외비 정책을 고려하여 기능 설명을 위해 재구성한 예시 화면입니다.</div>
-      <h1>CubeX PaaS 플랫폼</h1>
-      <div class="detail-meta">
-        <div class="detail-meta-row">
-          <span>서원정보</span>
-        </div>
-        <div class="role-chips">
-          <span class="role-chip">서비스 기획</span>
-          <span class="role-chip">플랫폼 설계</span>
-        </div>
-        <div class="contribution-label">
-          기여도 60%
-          <div class="contribution-bar"><div class="contribution-bar-fill" style="width:60%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Overview</h2>
-      <p>CubeX는 Kubernetes 기반의 클라우드 네이티브 PaaS 솔루션으로, 애플리케이션 배포와 운영을 효율적으로 관리할 수 있도록 지원하는 플랫폼입니다. 경북대학교 납품 계약을 기반으로 MVP 검증을 빠르게 진행해야 하는 상황에서 제품 초기 버전을 설계했습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Problem</h2>
-      <ul>
-        <li><strong>복잡한 애플리케이션 배포 과정</strong> — 컨테이너 이미지 관리, Deployment 설정, Pod 관리, 서비스 네트워크 설정 등 높은 Kubernetes 이해도가 필요</li>
-        <li><strong>운영 상태 모니터링의 어려움</strong> — CLI 중심 환경에서만 애플리케이션 상태, Pod, 리소스 사용량 확인 가능</li>
-        <li><strong>애플리케이션 관리 기능의 분산</strong> — 생성, 배포, 스케일링, 삭제 등 기능이 분산되어 사용성 저하</li>
-      </ul>
-    </section>
-
-    <section class="detail-section">
-      <h2>Solution</h2>
-      <h3 style="font-size:16px;font-weight:600;margin-bottom:12px;">1. One-Step Application 생성 기능</h3>
-      <p>UI 기반으로 애플리케이션 이름, 컨테이너 이미지, 리소스 설정, 네트워크 설정을 입력하여 바로 생성할 수 있도록 CLI 기반 설정 과정을 단순화했습니다.</p>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">2. Application Management 기능</h3>
-      <p>애플리케이션 상태 확인, 실행 중인 Pod 확인, 수정, 삭제 등을 통합 관리할 수 있는 기능을 설계했습니다.</p>
-
-      <h3 style="font-size:16px;font-weight:600;margin:24px 0 12px;">3. Auto Scaling 관리 기능</h3>
-      <p>최소/최대 Pod 수, CPU 사용률 기준 등의 조건을 설정하여 애플리케이션 스케일링 정책을 관리할 수 있도록 설계했습니다.</p>
-    </section>
-
-    <section class="detail-section">
-      <h2>Result</h2>
-      <div class="detail-callout">
-        <ul>
-          <li>Kubernetes 기반 애플리케이션 운영 환경을 UI 기반 플랫폼 구조로 설계하여 CLI 중심 환경의 접근성 문제 해결</li>
-          <li>기술 지식 없이도 플랫폼 운영이 가능한 사용자 중심 UX 흐름 구현</li>
-          <li>MVP 기반 빠른 검증을 통해 경북대학교 납품 계약 성사에 기여</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <h2>Key Contribution</h2>
-      <div class="contribution-list">
-        <div class="contribution-item">
-          <strong>1. 클라우드 네이티브 플랫폼 UX 구조 설계</strong>
-          <p>Kubernetes 기반 애플리케이션 운영 환경을 분석하여 플랫폼 UI 기반 관리 구조를 설계했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>2. Application Lifecycle 기능 기획</strong>
-          <p>애플리케이션 생성, 관리, 스케일링 등 Application Lifecycle 관리 기능을 정의했습니다.</p>
-        </div>
-        <div class="contribution-item">
-          <strong>3. MVP 기반 제품 기획 참여</strong>
-          <p>경북대학교 납품 프로젝트 일정에 맞춰 MVP 중심의 제품 기능을 기획하고 플랫폼 초기 구조 설계에 참여했습니다.</p>
-        </div>
-      </div>
-    </section>
-  </div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li><b>5개 제품 영역</b>의 Roadmap을 하나의 제품화 관점으로 통합</li>
+<li>선행기술을 사용자·사업 가치 중심의 AI Platform Concept으로 전환</li>
+<li>국내외 대형 리테일 업체 PoC를 통해 제품 시나리오와 기술 검증 범위 구체화</li>
+<li>PRD·Use Case·Prototype·API Flow 기반의 협업체계 구축</li>
+</ul>
 </div>
-
+<p class="deliver"><b>산출물</b> Product Concept &amp; Vision, MRD·PRD, Role-Based Use Case, AI
+                                Prompt Scenario, Product Roadmap, Prototype</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="pm platform policy" data-search="자사 saas platform 제품 개선 product pm saas
+                                platform product architecture 2026.05. ~ 글로벌 고객이 사용 중인 retail iot saas platform의 분산 기능을 사용자 업무 중심으로 재구성하고, ai 플랫폼과 별도
+                        서비스를 지속적으로 수용할 수 있도록 제품 구조와 확장 원칙을 개선했습니다. 주요 수행 기존 메뉴·기능·권한·사용 흐름 분석 및 목적 중심 기능 재분류 platform 공통기능과 별도 application 간 기능 boundary 정의 sso 기반 진입 구조, 기존 사용자 redirect 및 미사용 사용자 onboarding 정책 설계 web 관리자와 현장 mobile 사용자의 업무 목적 및 기능 scope 분리 기존·신규 ui 병행에 따른 중복개발과 유지보수 리스크 검토, 글로벌 개발조직과 단계별 적용범위 협의 주요 성과 device 기준의 기능 구조를 사용자 업무 목적 중심으로 재설계 platform core와 복수 application의 확장 기준 수립 frontend 중심의 개선 방향으로 backend 대규모 변경 리스크 제한 ia, 역할, 권한, 진입정책, web·mobile 구분을 개발 hand-off 수준으로 구체화 산출물 as-is/to-be ia, 기능분류표, 진입정책, web·mobile flow, action
+                                hierarchy, 개발 hand-off 문서">
+<div aria-controls="project-detail-2" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>자사 SaaS Platform 제품 개선</h3><span class="tag">Product PM</span><span class="tag">SaaS
+                                Platform</span><span class="tag">Product Architecture</span>
+</div>
+<div class="period">2026.05. ~</div>
+<button aria-label="자사 SaaS Platform 제품 개선 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-2">
+<p class="project-desc">글로벌 고객이 사용 중인 Retail IoT SaaS Platform의 분산 기능을 사용자 업무 중심으로 재구성하고, AI 플랫폼과 별도
+                        서비스를 지속적으로 수용할 수 있도록 제품 구조와 확장 원칙을 개선했습니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>기존 메뉴·기능·권한·사용 흐름 분석 및 목적 중심 기능 재분류</li>
+<li>Platform 공통기능과 별도 Application 간 기능 Boundary 정의</li>
+<li>SSO 기반 진입 구조, 기존 사용자 Redirect 및 미사용 사용자 Onboarding 정책 설계</li>
+<li>Web 관리자와 현장 Mobile 사용자의 업무 목적 및 기능 Scope 분리</li>
+<li>기존·신규 UI 병행에 따른 중복개발과 유지보수 리스크 검토, 글로벌 개발조직과 단계별 적용범위 협의</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li>Device 기준의 기능 구조를 사용자 업무 목적 중심으로 재설계</li>
+<li>Platform Core와 복수 Application의 확장 기준 수립</li>
+<li>Frontend 중심의 개선 방향으로 Backend 대규모 변경 리스크 제한</li>
+<li>IA, 역할, 권한, 진입정책, Web·Mobile 구분을 개발 Hand-off 수준으로 구체화</li>
+</ul>
+</div>
+<p class="deliver"><b>산출물</b> As-Is/To-Be IA, 기능분류표, 진입정책, Web·Mobile Flow, Action
+                                Hierarchy, 개발 Hand-off 문서</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="pm policy" data-search="선반 재고 모니터링 카메라 솔루션 제품 개선 product pm computer vision product improvement 2026.04. ~ 2026.08. 선반 촬영 및 상품 진열상태 분석 카메라 솔루션의 기존 software를 대상으로 dashboard, device 관리, shelf
+                        image 관리 및 rog/oos 결과 확인 흐름을 제품 관점에서 개선했습니다. 주요 수행 기존 dashboard, device, shelf image, history 및 분석결과 기능 분석 camera 상태관리, 설정, 촬영, 결과 확인의 end-to-end flow 및 정보구조 정의 내부 debugging 중심 결과를 상품·상태·위치 맥락 중심의 사용자 정보로 재설계 roi·aoi, layer hierarchy, 편집·완료 상태 및 초기 setup 규칙 정의 prd와 interactive prototype 기반으로 hq·글로벌 개발조직의 구현 가능성 검토 주요 성과 4개 핵심 영역 의 기능·정보구조·사용 flow 재정의 camera 관리부터 촬영 및 분석결과 확인까지 사용자 여정 통합 prd + prototype 기반의 개발 전 요구사항 검증체계 마련 산출물 ux/ui 개선 prd, 화면설계서, rog/oos 개선안, roi·aoi 정책, interactive
+                                prototype">
+<div aria-controls="project-detail-3" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>선반 재고 모니터링 카메라 솔루션 제품 개선</h3><span class="tag">Product PM</span><span class="tag">Computer Vision</span><span class="tag">Product Improvement</span>
+</div>
+<div class="period">2026.04. ~ 2026.08.</div>
+<button aria-label="선반 재고 모니터링 카메라 솔루션 제품 개선 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-3">
+<p class="project-desc">선반 촬영 및 상품 진열상태 분석 카메라 솔루션의 기존 Software를 대상으로 Dashboard, Device 관리, Shelf
+                        Image 관리 및 ROG/OOS 결과 확인 흐름을 제품 관점에서 개선했습니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>기존 Dashboard, Device, Shelf Image, History 및 분석결과 기능 분석</li>
+<li>Camera 상태관리, 설정, 촬영, 결과 확인의 End-to-End Flow 및 정보구조 정의</li>
+<li>내부 Debugging 중심 결과를 상품·상태·위치 맥락 중심의 사용자 정보로 재설계</li>
+<li>ROI·AOI, Layer Hierarchy, 편집·완료 상태 및 초기 Setup 규칙 정의</li>
+<li>PRD와 Interactive Prototype 기반으로 HQ·글로벌 개발조직의 구현 가능성 검토</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li><b>4개 핵심 영역</b>의 기능·정보구조·사용 Flow 재정의</li>
+<li>Camera 관리부터 촬영 및 분석결과 확인까지 사용자 여정 통합</li>
+<li>PRD + Prototype 기반의 개발 전 요구사항 검증체계 마련</li>
+</ul>
+</div>
+<p class="deliver"><b>산출물</b> UX/UI 개선 PRD, 화면설계서, ROG/OOS 개선안, ROI·AOI 정책, Interactive
+                                Prototype</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="pm policy" data-search="company whitelist 신규 feature 기획 product pm product policy global requirement 2026.07. ~ 인접 매장 간 esl tag 오연결과 고객의 매장별 등록 부담을 해결하기 위해 store 단위 정책을 company 단위 운영정책과 등록
+                        feature로 재설계했습니다. 주요 수행 factory·subsidiary·warehouse·reseller·si·customer·hq를 연결한 등록 lifecycle 정의 box·lot 기반 mac list와 company code 등록정책 설계 직출하, 분할출하, 고객변경, rma, 재판매, shop-in-shop, legacy tag corner case 구조화 유럽·미주·일본 법인 의견 취합 및 공통 요구사항·지역 예외조건 정리 rms·sap·whitelist server·core·gateway·tag 간 system boundary와 권한·검증·이력 요건 정의 주요 성과 whitelist 관리단위를 store에서 company로 전환하는 정책 수립 3개 글로벌 권역 의 의견과 corner case를 제품요구사항으로 통합 생산·출하·유통·설치·운영·rma를 포괄하는 end-to-end lifecycle 정의 server·gateway·core·firmware·application의 개발 검토영역 분리 산출물 제품정책서, corner case matrix, process swimlane, r&amp;r,
+                                application 비교안, 연동 요구사항">
+<div aria-controls="project-detail-4" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>Company Whitelist 신규 Feature 기획</h3><span class="tag">Product PM</span><span class="tag">Product Policy</span><span class="tag">Global Requirement</span>
+</div>
+<div class="period">2026.07. ~ </div>
+<button aria-label="Company Whitelist 신규 Feature 기획 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-4">
+<p class="project-desc">인접 매장 간 ESL Tag 오연결과 고객의 매장별 등록 부담을 해결하기 위해 Store 단위 정책을 Company 단위 운영정책과 등록
+                        Feature로 재설계했습니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>Factory·Subsidiary·Warehouse·Reseller·SI·Customer·HQ를 연결한 등록 Lifecycle 정의</li>
+<li>Box·Lot 기반 MAC List와 Company Code 등록정책 설계</li>
+<li>직출하, 분할출하, 고객변경, RMA, 재판매, Shop-in-Shop, Legacy Tag Corner Case 구조화</li>
+<li>유럽·미주·일본 법인 의견 취합 및 공통 요구사항·지역 예외조건 정리</li>
+<li>RMS·SAP·Whitelist Server·Core·Gateway·Tag 간 System Boundary와 권한·검증·이력 요건 정의</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li>Whitelist 관리단위를 Store에서 Company로 전환하는 정책 수립</li>
+<li><b>3개 글로벌 권역</b>의 의견과 Corner Case를 제품요구사항으로 통합</li>
+<li>생산·출하·유통·설치·운영·RMA를 포괄하는 End-to-End Lifecycle 정의</li>
+<li>Server·Gateway·Core·Firmware·Application의 개발 검토영역 분리</li>
+</ul>
+</div>
+<p class="deliver"><b>산출물</b> 제품정책서, Corner Case Matrix, Process Swimlane, R&amp;R,
+                                Application 비교안, 연동 요구사항</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="tpm platform" data-search="rfid 기반 선반 재고 센서 솔루션 poc technical pm rfid b2b poc 2026.06. ~ 글로벌 의류 제조·리테일 기업을 대상으로 rfid reader와 자사 saas platform의 digital twin을 연결해
+                        rack별 상품수량과 배치변화를 시각화한 poc입니다. 주요 수행 현장 실사를 통한 rack 구조, 상품배치, reader 설치 및 운영환경 분석 scan → 수량 갱신 → 상품 이동 → 재스캔 → 증감 확인의 5-step scenario 설계 reader health, scan transaction, rack quantity api와 ui 정보 mapping epc·upc·product·rack mapping requirement 정의 working prototype을 활용해 고객·사업·hw·sw 개발조직의 목표와 범위 조율 주요 성과 rfid reader 40대 규모 poc 기획 5단계 운영 scenario 와 digital twin dashboard 정의 기술 검증을 매장 운영자가 이해할 수 있는 재고관리 flow로 전환 제품조직 인계용 api·ui mapping 및 운영 요구사항 체계화 산출물 demo scenario, dashboard spec, working html prototype, api·ui
+                                mapping, 제품조직 hand-off">
+<div aria-controls="project-detail-5" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>RFID 기반 선반 재고 센서 솔루션 PoC</h3><span class="tag">Technical PM</span><span class="tag">RFID</span><span class="tag">B2B PoC</span>
+</div>
+<div class="period">2026.06. ~</div>
+<button aria-label="RFID 기반 선반 재고 센서 솔루션 PoC 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-5">
+<p class="project-desc">글로벌 의류 제조·리테일 기업을 대상으로 RFID Reader와 자사 SaaS Platform의 Digital Twin을 연결해
+                        Rack별 상품수량과 배치변화를 시각화한 PoC입니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>현장 실사를 통한 Rack 구조, 상품배치, Reader 설치 및 운영환경 분석</li>
+<li>Scan → 수량 갱신 → 상품 이동 → 재스캔 → 증감 확인의 5-Step Scenario 설계</li>
+<li>Reader Health, Scan Transaction, Rack Quantity API와 UI 정보 Mapping</li>
+<li>EPC·UPC·Product·Rack Mapping Requirement 정의</li>
+<li>Working Prototype을 활용해 고객·사업·HW·SW 개발조직의 목표와 범위 조율</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li><b>RFID Reader 40대</b> 규모 PoC 기획</li>
+<li><b>5단계 운영 Scenario</b>와 Digital Twin Dashboard 정의</li>
+<li>기술 검증을 매장 운영자가 이해할 수 있는 재고관리 Flow로 전환</li>
+<li>제품조직 인계용 API·UI Mapping 및 운영 요구사항 체계화</li>
+</ul>
+</div>
+<p class="deliver"><b>산출물</b> Demo Scenario, Dashboard Spec, Working HTML Prototype, API·UI
+                                Mapping, 제품조직 Hand-off</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="tpm policy" data-search="power rail ble beaconing 신규 feature 기획 technical pm ble beacon feature planning 2026.07 ~ power rail controller의 ble 기능을 활용해 상품탐색과 picking을 지원하는 근접 triggering
+                        feature의 제품 시나리오, 정책 및 기술 적용범위를 기획했습니다. 주요 수행 always-on tracking의 전력, 통신성능 및 인프라 한계 분석 task 시점과 구역만 활성화하는 on-demand beaconing concept 정의 product finding, proximity blinking, order picking scenario 기획 server·gateway·controller·mobile app·esl led의 역할과 end-to-end flow 정의 demo 기능, 추가개발 항목 및 상용화 미확정 범위를 구분하고 제품·개발·사업 조직과 커뮤니케이션 주요 성과 상시 tracking 요구를 on-demand triggering scenario로 전환 5개 system component 의 역할과 동작구조 정의 기술기능을 product finding과 picking의 사용자 가치로 구체화 demo·poc와 상용 scope를 구분해 커뮤니케이션 리스크 관리 산출물 product concept, 업무 scenario, system flow, app guide, 기술제약 및
+                                제품화 scope">
+<div aria-controls="project-detail-6" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>Power Rail BLE Beaconing 신규 Feature 기획</h3><span class="tag">Technical PM</span><span class="tag">BLE Beacon</span><span class="tag">Feature Planning</span>
+</div>
+<div class="period">2026.07 ~</div>
+<button aria-label="Power Rail BLE Beaconing 신규 Feature 기획 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-6">
+<p class="project-desc">Power Rail Controller의 BLE 기능을 활용해 상품탐색과 Picking을 지원하는 근접 Triggering
+                        Feature의 제품 시나리오, 정책 및 기술 적용범위를 기획했습니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>Always-On Tracking의 전력, 통신성능 및 인프라 한계 분석</li>
+<li>Task 시점과 구역만 활성화하는 On-Demand Beaconing Concept 정의</li>
+<li>Product Finding, Proximity Blinking, Order Picking Scenario 기획</li>
+<li>Server·Gateway·Controller·Mobile App·ESL LED의 역할과 End-to-End Flow 정의</li>
+<li>Demo 기능, 추가개발 항목 및 상용화 미확정 범위를 구분하고 제품·개발·사업 조직과 커뮤니케이션</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li>상시 Tracking 요구를 On-Demand Triggering Scenario로 전환</li>
+<li><b>5개 System Component</b>의 역할과 동작구조 정의</li>
+<li>기술기능을 Product Finding과 Picking의 사용자 가치로 구체화</li>
+<li>Demo·PoC와 상용 Scope를 구분해 커뮤니케이션 리스크 관리</li>
+</ul>
+</div>
+<p class="deliver"><b>산출물</b> Product Concept, 업무 Scenario, System Flow, App Guide, 기술제약 및
+                                제품화 Scope</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="platform" data-search="cubex 클라우드 네이티브 paas 구축 service planning cloud native paas public project 2024.04. ~ 2024.11. kubernetes 기반 클라우드 네이티브 paas 플랫폼 구축 프로젝트로, 고객 요구사항을 분석해 플랫폼 기능 구조와
+                        application lifecycle을 기획하고 mvp 검증 및 개발 일정을 관리했습니다. 주요 수행 고객 요구사항 분석 및 플랫폼 기능 구조 설계 one-step application 생성, application management, auto scaling 등 application
+                                    lifecycle 기능 기획 prd 및 figma 기반 화면 설계와 기능 우선순위 정의 ai 디자인 도구를 활용한 mvp 핵심 기능 검증 개발팀 협업 및 구축 일정 관리 주요 성과 ai 디자인 도구를 활용해 mvp 검증을 1개월 내 완료 핵심 기능 중심 개발 전략으로 일정 내 플랫폼 구축 완료 공공기관 플랫폼 구축 프로젝트 수행으로 약 4억 원 규모 매출 기여 활용 역량 service planning, requirement analysis, prd, cloud platform,
+                                figma, mvp validation">
+<div aria-controls="project-detail-7" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>CubeX 클라우드 네이티브 PaaS 구축</h3><span class="tag">Service Planning</span><span class="tag">Cloud Native PaaS</span><span class="tag">Public Project</span>
+</div>
+<div class="period">2024.04. ~ 2024.11.</div>
+<button aria-label="CubeX 클라우드 네이티브 PaaS 구축 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-7">
+<p class="project-desc">Kubernetes 기반 클라우드 네이티브 PaaS 플랫폼 구축 프로젝트로, 고객 요구사항을 분석해 플랫폼 기능 구조와
+                        Application Lifecycle을 기획하고 MVP 검증 및 개발 일정을 관리했습니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>고객 요구사항 분석 및 플랫폼 기능 구조 설계</li>
+<li>One-Step Application 생성, Application Management, Auto Scaling 등 Application
+                                    Lifecycle 기능 기획</li>
+<li>PRD 및 Figma 기반 화면 설계와 기능 우선순위 정의</li>
+<li>AI 디자인 도구를 활용한 MVP 핵심 기능 검증</li>
+<li>개발팀 협업 및 구축 일정 관리</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li>AI 디자인 도구를 활용해 <b>MVP 검증을 1개월 내 완료</b></li>
+<li>핵심 기능 중심 개발 전략으로 일정 내 플랫폼 구축 완료</li>
+<li>공공기관 플랫폼 구축 프로젝트 수행으로 <b>약 4억 원 규모 매출 기여</b></li>
+</ul>
+</div>
+<p class="deliver"><b>활용 역량</b> Service Planning, Requirement Analysis, PRD, Cloud Platform,
+                                Figma, MVP Validation</p>
+</div>
+</div>
+</div></article>
+<article class="project reveal" data-category="" data-search="현대엔지니어링 q-portal 구축 service planning enterprise portal si project 2023.08. ~ 2024.02. 건설 현장의 품질관리 업무를 통합 지원하는 포털 구축 프로젝트로, 분리 운영되던 품질관리 시스템을 업무 프로세스 기준으로 통합하고 자재
+                        승인 및 품질보고서 작성 과정을 개선했습니다. 주요 수행 기존 품질관리 시스템 분석 및 업무 프로세스 기반 통합 기능구조 설계 자재 공급 승인 및 품질보고서 작성 프로세스 개선 프로젝트별 분산 체크리스트를 조직 단위로 재사용하는 knowledge data 구조 설계 품질시험 설정을 고정 3회에서 최대 6회까지 지원하도록 기능 확장 기능정의서 및 figma 화면설계, 개발 협업, qa와 고객 요구사항 조율 주요 성과 보고서 작성 건수 1,096건 → 515건, 약 53% 감소 결재 반려 건수 63건 → 6건, 약 90% 감소 현장 품질관리 업무 프로세스 단순화 및 데이터 재사용 구조 마련 활용 역량 service planning, requirement analysis, enterprise system,
+                                figma, qa, customer communication">
+<div aria-controls="project-detail-8" aria-expanded="false" class="project-top" role="button" tabindex="0">
+<div>
+<h3>현대엔지니어링 Q-Portal 구축</h3><span class="tag">Service Planning</span><span class="tag">Enterprise Portal</span><span class="tag">SI Project</span>
+</div>
+<div class="period">2023.08. ~ 2024.02.</div>
+<button aria-label="현대엔지니어링 Q-Portal 구축 상세 열기" class="project-toggle" type="button">+</button></div><div class="project-detail" id="project-detail-8">
+<p class="project-desc">건설 현장의 품질관리 업무를 통합 지원하는 포털 구축 프로젝트로, 분리 운영되던 품질관리 시스템을 업무 프로세스 기준으로 통합하고 자재
+                        승인 및 품질보고서 작성 과정을 개선했습니다.</p>
+<div class="cols">
+<div>
+<p class="label">주요 수행</p>
+<ul>
+<li>기존 품질관리 시스템 분석 및 업무 프로세스 기반 통합 기능구조 설계</li>
+<li>자재 공급 승인 및 품질보고서 작성 프로세스 개선</li>
+<li>프로젝트별 분산 체크리스트를 조직 단위로 재사용하는 Knowledge Data 구조 설계</li>
+<li>품질시험 설정을 고정 3회에서 최대 6회까지 지원하도록 기능 확장</li>
+<li>기능정의서 및 Figma 화면설계, 개발 협업, QA와 고객 요구사항 조율</li>
+</ul>
+</div>
+<div>
+<p class="label">주요 성과</p>
+<div class="results">
+<ul>
+<li>보고서 작성 건수 <b>1,096건 → 515건, 약 53% 감소</b></li>
+<li>결재 반려 건수 <b>63건 → 6건, 약 90% 감소</b></li>
+<li>현장 품질관리 업무 프로세스 단순화 및 데이터 재사용 구조 마련</li>
+</ul>
+</div>
+<p class="deliver"><b>활용 역량</b> Service Planning, Requirement Analysis, Enterprise System,
+                                Figma, QA, Customer Communication</p>
+</div>
+</div>
+</div></article>
+</section>
+<section class="section" id="capability">
+<div class="section-head">
+<div class="num">04 · CAPABILITY</div>
+<div>
+<h2>핵심 역량 및 기술</h2>
+</div>
+</div>
+<div class="skills"><span tabindex="0" title="클릭하여 강조">Product Strategy</span><span tabindex="0" title="클릭하여 강조">Technical PM</span><span tabindex="0" title="클릭하여 강조">Product
+                        Roadmap</span><span tabindex="0" title="클릭하여 강조">MRD / PRD</span><span tabindex="0" title="클릭하여 강조">Product Policy</span><span tabindex="0" title="클릭하여 강조">Requirement
+                        Management</span><span tabindex="0" title="클릭하여 강조">IoT Architecture</span><span tabindex="0" title="클릭하여 강조">API Analysis</span><span tabindex="0" title="클릭하여 강조">System
+                        Boundary</span><span tabindex="0" title="클릭하여 강조">Working Prototype</span><span tabindex="0" title="클릭하여 강조">B2B PoC</span><span tabindex="0" title="클릭하여 강조">SaaS
+                        Platform</span><span tabindex="0" title="클릭하여 강조">Ontology</span><span tabindex="0" title="클릭하여 강조">GraphRAG</span><span tabindex="0" title="클릭하여 강조">AI Agent</span><span tabindex="0" title="클릭하여 강조">Digital
+                        Twin</span><span tabindex="0" title="클릭하여 강조">Computer
+                        Vision</span><span tabindex="0" title="클릭하여 강조">RFID</span><span tabindex="0" title="클릭하여 강조">BLE</span><span tabindex="0" title="클릭하여 강조">Figma</span><span tabindex="0" title="클릭하여 강조">Microsoft
+                        Copilot</span><span tabindex="0" title="클릭하여 강조">Global Communication</span></div>
+</section>
+<section class="section" id="evidence">
+<div class="note"><b>정량 성과 표기 원칙</b><br/>본 문서에는 기존 경력기술서 및 프로젝트 자료에서 확인 가능한 수치만 반영했습니다. 개발 공수 절감률, 매출
+                    기여, 고객 운영시간 단축 등 검증되지 않은 효과는 임의로 기재하지 않았습니다.</div>
+</section>
+</div>
+<footer class="footer"><span>TPM / PM / 제품전략기획</span><span>Career Portfolio · Updated 2026.09.01</span></footer>
+</main>
 <script>
-  function showProject(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id + '-page').classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function showMain() {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('main-page').classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-</body>
+(() => {
+ const body=document.body, progress=document.querySelector('.scroll-progress span'), topBtn=document.querySelector('#toTop');
+ const toast=(msg)=>{let t=document.querySelector('.toast'); if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)} t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),1600)};
+ const updateScroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=((scrollY/Math.max(max,1))*100)+'%';topBtn.style.opacity=scrollY>500?'1':'.45'};
+ addEventListener('scroll',updateScroll,{passive:true});updateScroll();topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+ const theme=document.querySelector('#themeToggle'); if(localStorage.portfolioTheme==='dark')body.classList.add('dark'); theme.onclick=()=>{body.classList.toggle('dark');localStorage.portfolioTheme=body.classList.contains('dark')?'dark':'light'};
+ const reveal=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');reveal.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(x=>reveal.observe(x));
+ const sections=[...document.querySelectorAll('section[id]')],nav=[...document.querySelectorAll('.dock a')];
+ const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){nav.forEach(a=>a.classList.toggle('active',a.dataset.target===e.target.id))}}),{rootMargin:'-30% 0px -60% 0px'});sections.forEach(s=>spy.observe(s));
+ const toggle=(a,force)=>{const open=force===undefined?!a.classList.contains('open'):force;a.classList.toggle('open',open);const top=a.querySelector('.project-top'),b=a.querySelector('.project-toggle');top.setAttribute('aria-expanded',open);b.textContent=open?'−':'+'};
+ document.querySelectorAll('.project').forEach(a=>{const top=a.querySelector('.project-top');top.onclick=e=>{if(!e.target.closest('.tag'))toggle(a)};top.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(a)}}});
+ let expanded=false;document.querySelector('#expandAll').onclick=e=>{expanded=!expanded;document.querySelectorAll('.project:not(.hidden)').forEach(a=>toggle(a,expanded));e.currentTarget.textContent=expanded?'전체 접기':'전체 펼치기'};
+ const filters=[...document.querySelectorAll('.filter')],search=document.querySelector('#projectSearch'),count=document.querySelector('#visibleCount');let active='all';
+ const apply=()=>{const q=search.value.trim().toLowerCase();let n=0;document.querySelectorAll('.project').forEach(a=>{const cat=a.dataset.category||'',ok=(active==='all'||cat.includes(active))&&(!q||a.dataset.search.includes(q));a.classList.toggle('hidden',!ok);if(ok)n++});count.textContent=n};
+ filters.forEach(b=>b.onclick=()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.filter;apply()});search.oninput=apply;
+ document.querySelector('#copySummary').onclick=async()=>{const txt=document.querySelector('.hero .summary').innerText;try{await navigator.clipboard.writeText(txt);toast('소개 문구를 복사했습니다')}catch{toast('브라우저에서 복사를 허용해 주세요')}};
+ document.querySelectorAll('.skills span').forEach(x=>x.onclick=()=>x.classList.toggle('selected'));
+})();
+</script></body>
 </html>
