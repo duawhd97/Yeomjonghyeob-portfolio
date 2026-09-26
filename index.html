@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Career Portfolio | TPM · PM · Product Strategy</title>
-<style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>제품전략·상품기획자 염종협 포트폴리오</title>
+    <style>
         :root {
-            --bg: #edf2f8;
-            --card: #fff;
-            --ink: #172033;
-            --muted: #697586;
-            --line: #e3e9f1;
-            --brand: #175cd3;
-            --brand2: #0c3d73;
-            --soft: #f5f8fc;
-            --glass: rgba(255, 255, 255, .84)
+            --paper: #fbfaf7;
+            --white: #fff;
+            --ink: #17212d;
+            --muted: #617080;
+            --line: #e3e6e5;
+            --accent: #285c67;
+            --accent-soft: #edf5f4;
+            --max: 900px
         }
 
         * {
@@ -24,882 +24,582 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 92px
+            scroll-padding-top: 88px
         }
 
         body {
             margin: 0;
-            background: var(--bg);
+            background: var(--paper);
             color: var(--ink);
-            font-family: Pretendard, "Noto Sans KR", Inter, Arial, sans-serif;
-            line-height: 1.65
+            font-family: Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.76;
+            letter-spacing: -.012em
         }
 
-        .progress {
-            position: fixed;
-            inset: 0 0 auto;
-            height: 4px;
-            z-index: 99
+        button {
+            font: inherit
         }
 
-        .progress i {
-            display: block;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, #69a6ff, var(--brand), #16a085)
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        p {
+            margin: 0 0 16px
+        }
+
+        strong {
+            font-weight: 750;
+            color: var(--ink)
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: auto;
+            padding: 0 30px
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(251, 250, 247, .96);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px)
+        }
+
+        .topbar-inner {
+            max-width: var(--max);
+            margin: auto;
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            white-space: nowrap
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 28px
         }
 
         .nav {
-            position: fixed;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 90;
             display: flex;
-            gap: 4px;
-            padding: 6px;
-            border: 1px solid rgba(255, 255, 255, .7);
-            border-radius: 999px;
-            background: var(--glass);
-            backdrop-filter: blur(18px);
-            box-shadow: 0 12px 35px #10284022
+            gap: 20px
         }
 
         .nav a {
-            text-decoration: none;
-            color: #526176;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 8px 13px;
-            border-radius: 999px
-        }
-
-        .nav a:hover,
-        .nav a.active {
-            background: var(--brand);
-            color: #fff
-        }
-
-        .tools {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            z-index: 90;
-            display: flex;
-            gap: 7px;
-            padding: 7px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--glass);
-            backdrop-filter: blur(18px);
-            box-shadow: 0 12px 35px #10284022
-        }
-
-        .tools button,
-        .lang button {
-            border: 0;
-            background: transparent;
-            color: var(--ink);
-            font: inherit;
-            font-size: 12px;
-            font-weight: 850;
-            padding: 8px 10px;
-            border-radius: 9px;
-            cursor: pointer
-        }
-
-        .tools button:hover,
-        .lang button:hover,
-        .lang button.on {
-            background: var(--brand);
-            color: #fff
-        }
-
-        .sheet {
-            max-width: 1080px;
-            margin: auto;
-            background: var(--card);
-            box-shadow: 0 16px 60px #1018281c
-        }
-
-        .hero {
-            min-height: 620px;
-            padding: 90px 72px 62px;
-            color: #fff;
-            background: linear-gradient(135deg, #09294f, #175592 68%, #167b86);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center
-        }
-
-        .hero:before {
-            content: "";
-            position: absolute;
-            inset: -35%;
-            background: radial-gradient(circle at 28% 30%, #70aaff55, transparent 25%), radial-gradient(circle at 72% 65%, #2fd3b433, transparent 24%);
-            animation: float 12s ease-in-out infinite alternate
-        }
-
-        .hero:after {
-            content: "";
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            border: 1px solid #ffffff25;
-            border-radius: 50%;
-            right: -130px;
-            top: -110px;
-            box-shadow: 0 0 0 60px #ffffff0a, 0 0 0 130px #ffffff07
-        }
-
-        .hero>* {
-            position: relative;
-            z-index: 2
-        }
-
-        .eyebrow {
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: .17em;
-            opacity: .75
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            line-height: 1.08;
-            margin: 14px 0 8px;
-            letter-spacing: -.05em
-        }
-
-        .hero .role {
-            font-size: 21px;
-            font-weight: 800;
-            color: #dbeafe;
-            margin: 0 0 23px
-        }
-
-        .hero .summary {
-            max-width: 850px;
-            font-size: 16px;
-            color: #eef6ff;
-            margin: 0
-        }
-
-        .hero-meta,
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 22px;
-            margin-top: 26px;
-            font-size: 13px;
-            color: #dceaff
-        }
-
-        .hero-actions {
-            gap: 10px
-        }
-
-        .hero-actions a,
-        .hero-actions button {
-            border: 1px solid #ffffff55;
-            border-radius: 10px;
-            padding: 11px 15px;
-            font: inherit;
-            font-size: 13px;
-            font-weight: 850;
-            text-decoration: none;
-            cursor: pointer
-        }
-
-        .hero-actions a {
-            background: #fff;
-            color: #12355e
-        }
-
-        .hero-actions button {
-            background: #ffffff12;
-            color: #fff
-        }
-
-        .lang {
-            position: absolute;
-            right: 28px;
-            top: 28px;
-            display: flex;
-            padding: 4px;
-            border: 1px solid #ffffff3f;
-            border-radius: 999px;
-            background: #071f3b55
-        }
-
-        .lang button {
-            color: #d8e8fa;
-            padding: 7px 12px
-        }
-
-        .lang button.on {
-            background: #fff;
-            color: #12355e
-        }
-
-        .wrap {
-            padding: 0 72px 70px
-        }
-
-        .section {
-            padding: 58px 0;
-            border-bottom: 1px solid var(--line)
-        }
-
-        .section-head {
-            display: grid;
-            grid-template-columns: 175px 1fr;
-            gap: 24px;
-            margin-bottom: 28px
-        }
-
-        .num {
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: .12em;
-            color: var(--brand)
-        }
-
-        h2 {
-            font-size: 29px;
-            line-height: 1.25;
-            margin: 0;
-            letter-spacing: -.035em
-        }
-
-        .lead {
-            color: var(--muted);
-            margin: 7px 0 0
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px
-        }
-
-        .card {
-            padding: 20px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--soft);
-            transition: .25s
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 38px #10182818
-        }
-
-        .card b {
-            display: block;
-            margin-bottom: 6px
-        }
-
-        .card p {
-            color: var(--muted);
-            font-size: 14px;
-            margin: 0
-        }
-
-        .pills,
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 0 0 24px
-        }
-
-        .pill,
-        .skills span {
-            padding: 7px 11px;
-            border: 1px solid #c6d6e9;
-            border-radius: 999px;
-            background: #f7faff;
-            color: #214a78;
-            font-size: 11px;
-            font-weight: 850
-        }
-
-        .career {
-            padding: 23px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            margin-bottom: 14px
-        }
-
-        .career-head {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 16px
-        }
-
-        .company {
-            font-size: 21px;
-            font-weight: 900
-        }
-
-        .meta,
-        .period,
-        .career-role small {
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        .timeline {
-            display: grid;
-            gap: 14px;
-            margin-top: 18px
-        }
-
-        .career-role {
-            border-left: 2px solid #d6e3f3;
-            padding-left: 18px;
-            position: relative
-        }
-
-        .career-role:before {
-            content: "";
-            position: absolute;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--brand);
-            left: -5.5px;
-            top: 7px
-        }
-
-        .career-role strong {
-            font-size: 16px
-        }
-
-        .toolbar {
-            position: sticky;
-            top: 80px;
-            z-index: 60;
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 11px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 8px 25px #10182812;
-            margin-bottom: 14px
-        }
-
-        .filters {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap
-        }
-
-        .filters button {
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: #fff;
-            color: #5e6c80;
-            padding: 7px 10px;
-            font-size: 11px;
-            font-weight: 850;
-            cursor: pointer
-        }
-
-        .filters button.on {
-            background: var(--brand);
-            color: #fff
-        }
-
-        .search {
-            border: 1px solid var(--line);
-            border-radius: 9px;
-            padding: 7px 10px;
-            background: #fff
-        }
-
-        .search input {
-            border: 0;
-            outline: 0;
-            font: inherit;
-            font-size: 12px;
-            width: 165px
-        }
-
-        .count {
-            text-align: right;
-            color: var(--muted);
-            font-size: 12px
-        }
-
-        .count b {
-            font-size: 18px;
-            color: var(--brand)
-        }
-
-        .project {
-            padding: 25px 0;
-            border-top: 1px solid var(--line)
-        }
-
-        .project.hidden {
-            display: none
-        }
-        button { touch-action: manipulation; }
-        .toolbar { scroll-margin-top: 92px; }
-        #projectList { min-height: 420px; }
-        .project-top:focus-visible, .filters button:focus-visible, .lang button:focus-visible, .tools button:focus-visible { outline: 3px solid rgba(23,92,211,.28); outline-offset: 3px; }
-
-        .project-top {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto auto;
-            gap: 18px;
-            align-items: center;
-            padding: 11px 13px;
-            margin: -11px -13px;
-            border-radius: 12px;
-            cursor: pointer
-        }
-
-        .project-top:hover {
-            background: var(--soft)
-        }
-
-        .project h3 {
-            font-size: 23px;
-            line-height: 1.3;
-            margin: 0
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px
-        }
-
-        .tag {
-            padding: 4px 8px;
-            border-radius: 6px;
-            background: #edf4ff;
-            color: #214d80;
-            font-size: 10px;
-            font-weight: 850
-        }
-
-        .project .period {
             font-size: 12px;
             color: var(--muted);
             white-space: nowrap
         }
 
-        .toggle {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            border: 1px solid var(--line);
-            background: #fff;
-            color: var(--brand);
-            font-size: 20px;
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--accent)
+        }
+
+        .language {
+            display: flex;
+            gap: 11px;
+            align-items: center;
+            white-space: nowrap
+        }
+
+        .language button {
+            border: 0;
+            border-bottom: 2px solid transparent;
+            padding: 4px 0 5px;
+            background: none;
+            color: #89939b;
+            font-size: 12px;
+            font-weight: 650;
             cursor: pointer
         }
 
-        .project-detail {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-5px);
-            transition: max-height .55s cubic-bezier(.22, 1, .36, 1), opacity .25s, transform .35s, visibility 0s linear .55s
+        .language button.active {
+            border-color: var(--accent);
+            color: var(--ink)
         }
 
-        .project.open .project-detail {
-            max-height: 1500px;
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-            transition: max-height .55s cubic-bezier(.22, 1, .36, 1), opacity .3s .08s, transform .35s
+        .language button:focus-visible,
+        .nav a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px
         }
 
-        .project.open .toggle {
-            background: var(--brand);
-            color: #fff
+        .hero {
+            padding: 92px 0 82px;
+            border-bottom: 1px solid var(--line)
         }
 
-        .desc {
-            color: #475467;
-            margin: 18px 0
-        }
-
-        .cols {
-            display: grid;
-            grid-template-columns: 1.3fr .95fr;
-            gap: 30px
-        }
-
-        .label {
+        .eyebrow,
+        .kicker {
             font-size: 11px;
-            font-weight: 900;
-            letter-spacing: .1em;
-            color: var(--brand)
+            font-weight: 800;
+            letter-spacing: .12em;
+            color: var(--accent);
+            text-transform: uppercase
         }
 
-        ul {
-            padding-left: 19px;
+        .hero h1 {
+            margin: 20px 0 26px;
+            font-size: clamp(36px, 5vw, 56px);
+            line-height: 1.18;
+            letter-spacing: -.065em;
+            font-weight: 790
+        }
+
+        .hero .lead {
+            font-size: 21px;
+            line-height: 1.62;
+            max-width: 720px;
+            font-weight: 550
+        }
+
+        .hero .summary {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #485766;
+            max-width: 740px;
+            margin-top: 18px
+        }
+
+        .hero .summary strong {
+            color: var(--accent)
+        }
+
+        .hero-meta {
+            margin-top: 28px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        .section {
+            padding: 78px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .section-heading {
+            margin-bottom: 34px
+        }
+
+        .section-heading h2 {
+            margin: 8px 0 8px;
+            font-size: 30px;
+            line-height: 1.35;
+            letter-spacing: -.045em
+        }
+
+        .section-heading .sub {
+            color: var(--muted);
+            font-size: 15px
+        }
+
+        .case-intro {
+            padding: 30px 0 40px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .case-intro h3 {
+            font-size: clamp(26px, 4vw, 38px);
+            line-height: 1.35;
+            letter-spacing: -.045em;
+            margin: 12px 0 12px
+        }
+
+        .case-intro .meta {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .thesis {
+            margin: 24px 0 0;
+            padding: 20px 23px;
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            font-size: 17px;
+            font-weight: 680;
+            line-height: 1.65
+        }
+
+        .chapter {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .chapter h3 {
+            font-size: 26px;
+            letter-spacing: -.04em;
+            line-height: 1.35;
+            margin: 12px 0 18px
+        }
+
+        .chapter>p {
+            font-size: 16px;
+            color: #3c4a58;
+            line-height: 1.85;
+            max-width: 780px
+        }
+
+        .question {
+            margin: 26px 0 0;
+            padding: 20px 24px;
+            border-left: 3px solid var(--accent);
+            background: #f4f7f5
+        }
+
+        .question .kicker {
+            display: block;
+            margin-bottom: 6px
+        }
+
+        .question blockquote {
+            font-size: 19px;
+            line-height: 1.6;
+            font-weight: 700;
             margin: 0
         }
 
-        li {
-            margin: 6px 0;
-            color: #344054
+        .reason-list {
+            margin-top: 25px;
+            display: grid;
+            gap: 0
         }
 
-        .results {
-            padding: 17px 19px;
-            background: var(--soft);
-            border-left: 4px solid var(--brand);
-            border-radius: 0 10px 10px 0
+        .reason {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 12px;
+            padding: 17px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .reason:last-child {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .reason .index {
+            font-size: 13px;
+            font-weight: 750;
+            color: var(--accent)
+        }
+
+        .reason h4 {
+            font-size: 17px;
+            margin: 0 0 4px
+        }
+
+        .reason p {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 0
+        }
+
+        .stream {
+            padding: 26px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .stream:last-child {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .stream h4 {
+            font-size: 20px;
+            margin: 0 0 13px;
+            letter-spacing: -.03em
+        }
+
+        .stream .detail {
+            display: grid;
+            grid-template-columns: 108px 1fr;
+            gap: 14px;
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.75
+        }
+
+        .stream .detail dt {
+            color: var(--accent);
+            font-weight: 750
+        }
+
+        .stream .detail dd {
+            margin: 0;
+            color: #40505d
+        }
+
+        .stream .detail:last-child dd {
+            font-weight: 650;
+            color: #203942
+        }
+
+        .conclusion {
+            background: #f0f6f3;
+            padding: 32px 34px;
+            border-radius: 5px;
+            border-bottom: 0;
+            margin-top: 42px
+        }
+
+        .conclusion h3 {
+            margin: 10px 0 16px
+        }
+
+        .conclusion p {
+            color: #30434b
+        }
+
+        .conclusion strong {
+            color: #175b57
         }
 
         .deliver {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .deliver b {
+            color: var(--ink)
+        }
+
+        .older {
+            border-top: 1px solid var(--line);
+            padding: 25px 0
+        }
+
+        .older h3 {
+            margin: 0;
+            font-size: 19px
+        }
+
+        .older .date {
             font-size: 12px;
             color: var(--muted);
-            margin-top: 12px
+            margin: 5px 0 10px
         }
 
-        .skills span {
-            cursor: pointer
+        .older p {
+            font-size: 14px;
+            color: #495865
         }
 
-        .skills span:hover {
-            background: var(--brand);
-            color: #fff
+        .older details {
+            margin-top: 10px
+        }
+
+        .older summary {
+            cursor: pointer;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700
+        }
+
+        .older ul {
+            padding-left: 19px;
+            font-size: 14px;
+            color: #46535f
+        }
+
+        .older li {
+            margin: 6px 0
+        }
+
+        .older h4 {
+            font-size: 13px;
+            margin: 15px 0 5px
+        }
+
+        .experience-total {
+            margin: 0 0 24px;
+            padding: 18px 22px;
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent)
+        }
+
+        .experience-total strong {
+            display: block;
+            font-size: 21px;
+            line-height: 1.45;
+            color: var(--ink)
+        }
+
+        .experience-total small {
+            display: block;
+            margin-top: 3px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        .career {
+            border-top: 1px solid var(--line);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .career h3 {
+            font-size: 17px;
+            margin: 0 0 6px
+        }
+
+        .career p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .career time {
+            font-size: 12px;
+            color: var(--muted);
+            white-space: nowrap
         }
 
         .footer {
-            padding: 35px 72px;
-            background: #101828;
-            color: #d0d5dd;
+            padding: 32px 0 50px;
             font-size: 12px;
-            display: flex;
-            justify-content: space-between
+            color: var(--muted)
         }
 
-        @keyframes float {
-            to {
-                transform: translate(3%, 2%) scale(1.04)
+        @media(max-width:700px) {
+            .container {
+                padding: 0 20px
             }
-        }
 
-        @media(max-width:760px) {
+            .topbar-inner {
+                padding: 13px 20px
+            }
+
+            .header-right {
+                gap: 15px
+            }
+
             .nav {
-                top: auto;
-                bottom: 16px
-            }
-
-            .nav a {
-                padding: 8px 10px
-            }
-
-            .tools {
-                top: 12px;
-                right: 12px;
-                bottom: auto
-            }
-
-            .tools #expand {
                 display: none
             }
 
             .hero {
-                min-height: 560px;
-                padding: 78px 24px 48px
+                padding: 68px 0 58px
             }
 
-            .hero h1 {
-                font-size: 39px
+            .hero .lead {
+                font-size: 18px
             }
 
-            .lang {
-                right: 18px;
-                top: 20px
+            .section {
+                padding: 58px 0
             }
 
-            .wrap {
-                padding: 0 24px 80px
+            .section-heading h2 {
+                font-size: 26px
             }
 
-            .section-head {
+            .chapter {
+                padding: 39px 0
+            }
+
+            .chapter h3 {
+                font-size: 23px
+            }
+
+            .stream .detail {
                 grid-template-columns: 1fr;
-                gap: 4px
+                gap: 0;
+                margin: 14px 0
             }
 
-            .grid,
-            .cols {
-                grid-template-columns: 1fr
+            .stream .detail dt {
+                margin-bottom: 2px
             }
 
-            .toolbar {
-                position: relative;
-                top: auto;
-                flex-direction: column
+            .conclusion {
+                padding: 25px 22px
             }
 
-            .filters {
-                overflow: auto;
-                flex-wrap: nowrap
-            }
-
-            .filters button {
-                white-space: nowrap
-            }
-
-            .search input {
-                width: 100%
-            }
-
-            .project-top {
-                grid-template-columns: minmax(0, 1fr) auto
-            }
-
-            .project .period {
-                grid-row: 2
-            }
-
-            .toggle {
-                grid-column: 2;
-                grid-row: 1/3
-            }
-
-            .career-head {
+            .career {
                 display: block
             }
 
-            .footer {
-                padding: 28px 24px;
-                display: block
+            .career time {
+                display: block;
+                margin-top: 8px
             }
         }
-    
 
-#visitor-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);color:#dceaff;font-size:11px;white-space:nowrap}
-#visitor-badge b{color:#fff;font-weight:800}#visitor-badge i{font-style:normal;opacity:.45}
-#visitor-badge.tracker-offline{opacity:.62}
-</style>
-</head>
-<body>
-<div class="progress"><i></i></div>
-<nav class="nav"><a class="active" data-nav="role" href="#role">Role</a><a data-nav="experience" href="#experience">Experience</a><a data-nav="projects" href="#projects">Projects</a><a data-nav="skills" href="#skills">Skills</a></nav>
-<div class="tools"><button id="expand">Expand all</button><button id="top">↑</button></div>
-<main class="sheet">
-<header class="hero">
-<div class="lang"><button class="on" data-lang="ko">KO</button><button data-lang="en">EN</button></div>
-<div class="eyebrow">CAREER PORTFOLIO · 2023.06–2026.09.01</div>
-<h1 id="heroTitle"></h1>
-<p class="role">TPM · PM · Product Strategy</p>
-<p class="summary" id="heroSummary"></p>
-<div class="hero-meta"><span>Retail IoT · SaaS · AI Platform</span><span>Product Strategy · Technical
-                    PM</span><span>SOLUM | 2025.03–Present</span><span aria-live="polite" id="visitor-badge">Today <b id="visitor-today">-</b><i>·</i> Total <b id="visitor-total">-</b></span></div>
-<div class="hero-actions"><a href="#projects" id="viewProjects"></a><button id="copy"></button></div>
-</header>
-<div class="wrap">
-<section class="section" id="role">
-<div class="section-head">
-<div class="num">01 · ROLE</div>
-<div>
-<h2 id="roleTitle"></h2>
-<p class="lead" id="roleLead"></p>
-</div>
-</div>
-<div class="pills"><span class="pill">TPM</span><span class="pill">PM</span><span class="pill">Product
-                        Strategy</span></div>
-<div class="grid" id="roleGrid"></div>
-</section>
-<section class="section" id="experience">
-<div class="section-head">
-<div class="num">02 · EXPERIENCE</div>
-<div>
-<h2 id="expTitle"></h2>
-<p class="lead" id="expLead"></p>
-</div>
-</div>
-<div id="careerList"></div>
-</section>
-<section class="section" id="projects">
-<div class="section-head">
-<div class="num">03 · PROJECTS</div>
-<div>
-<h2 id="projTitle"></h2>
-<p class="lead" id="projLead"></p>
-</div>
-</div>
-<div class="toolbar">
-<div class="filters"><button class="on" data-filter="all">All</button><button data-filter="pm">Product PM</button><button data-filter="tpm">Technical PM</button><button data-filter="platform">Platform</button><button data-filter="policy">Policy</button></div>
-<label class="search">⌕ <input id="search"/></label>
-</div>
-<div class="count"><b id="count">8</b> <span id="countLabel"></span></div>
-<div id="projectList"></div>
-</section>
-<section class="section" id="skills">
-<div class="section-head">
-<div class="num">04 · CAPABILITY</div>
-<div>
-<h2 id="skillTitle"></h2>
-</div>
-</div>
-<div class="skills" id="skillList"></div>
-</section>
-</div>
-<footer class="footer"><span>TPM / PM / Product Strategy</span><span>Career Portfolio · Updated
-                2026.09.01</span></footer>
-</main>
-<script>
-        const D = { "ko": { "title": "Portfolio", "summary": "전략기획그룹의 PM으로서 자사 SaaS Platform과 Ontology 기반 AI 플랫폼의 제품 전략, 로드맵 및 제품화를 담당합니다. 선반 재고 모니터링 카메라·센서 솔루션과 Retail IoT 신규 Feature를 대상으로 고객과 글로벌 법인의 요구를 제품 시나리오, 정책, 기능 범위 및 개발 요구사항으로 구체화하고, 국내외 제품·개발·사업 조직의 실행을 조율합니다.", "view": "프로젝트 살펴보기 ↓", "copy": "소개 문구 복사", "roleTitle": "제품과 기술 사이의 실행을 설계하는 PM", "roleLead": "정보의 시각화 역량을 활용해 제품 정책과 기술 요구사항을 실제 사용 흐름으로 검증합니다.", "expTitle": "경력", "expLead": "제품 전략과 서비스 기획을 기반으로 플랫폼 및 엔터프라이즈 시스템 구축 경험을 이어왔습니다.", "projTitle": "주요 프로젝트", "projLead": "2023년 6월부터 2026년 9월 1일까지 수행한 제품 전략, 제품화, 플랫폼 개선 및 엔터프라이즈 시스템 구축 경험입니다.", "count": "개의 프로젝트", "search": "프로젝트·기술 검색", "skillTitle": "핵심 역량 및 기술", "main": "주요 수행", "result": "주요 성과", "deliver": "산출물", "cap": "활용 역량", "roles": [["제품 전략 및 로드맵", "시장·고객·법인 요구와 내부 기술 자산을 연결해 제품 방향, 우선순위, MRD·PRD 및 개발 Scope를 정의합니다."], ["Technical Product Management", "HW·FW·Gateway·Server·API·Web·Mobile의 역할과 데이터 흐름을 정의하고 기술 제약을 제품화 단계로 전환합니다."], ["제품 정책 및 시나리오", "설치, 재할당, 물류, 장애 및 예외상황까지 포함한 운영정책과 제품 시나리오를 설계합니다."], ["PM 및 커뮤니케이션", "전략기획, 제품, UX, 개발, 영업, 해외 법인 및 고객사 사이에서 목표·범위·리스크·의사결정을 조율합니다."], ["리더십", "프로덕트 디자이너 2명의 기획자 직무 전환을 멘토링하며 과제 배분, 제품 도메인 교육, 산출물 검토 및 업무 방향 설정을 담당합니다."], ["PoC 및 Prototype 검증", "Working Prototype과 현장 PoC를 활용해 개발 전 제품 시나리오, 기술 타당성 및 이해관계자 기대 수준을 검증합니다."]], "careers": [["SOLUM", "정규직", "대한민국 경기도 용인 · 대면근무", "2025.03 – 현재", [["Product Manager - Business & Product Strategy Group", "2026.05 – 현재"], ["Service Planner - CX Group", "2025.03 – 2026.04 · 1년 2개월"]]], ["㈜서원정보", "서비스 기획 · 정규직", "대한민국 서울 · 대면근무", "2023.06 – 2025.03 · 1년 10개월", [["서비스 기획", "엔터프라이즈 포털 및 Cloud Native PaaS 구축 프로젝트"]]]] }, "en": { "title": "Career Portfolio", "summary": "As a PM in the Business & Product Strategy Group, I lead product strategy, roadmaps, and productization for an in-house SaaS platform and an ontology-based AI platform. I translate customer and global subsidiary needs for shelf-inventory monitoring camera and sensor solutions and new Retail IoT features into product scenarios, policies, functional scope, and development requirements, while coordinating execution across product, engineering, and business teams in Korea and abroad.", "view": "Explore Projects ↓", "copy": "Copy Summary", "roleTitle": "A PM who turns product and technology into execution", "roleLead": "I use information visualization to validate product policies and technical requirements through real user flows.", "expTitle": "Experience", "expLead": "Experience spanning product strategy, service planning, platform products, and enterprise system delivery.", "projTitle": "Selected Projects", "projLead": "Product strategy, productization, platform improvement, and enterprise system delivery experience from June 2023 through September 1, 2026.", "count": "projects", "search": "Search projects or technologies", "skillTitle": "Core Capabilities & Technologies", "main": "KEY RESPONSIBILITIES", "result": "KEY OUTCOMES", "deliver": "Deliverables", "cap": "Capabilities", "roles": [["Product Strategy & Roadmap", "Connect market, customer, and subsidiary needs with internal technology assets to define product direction, priorities, MRDs/PRDs, and development scope."], ["Technical Product Management", "Define roles and data flows across hardware, firmware, gateways, servers, APIs, web, and mobile, and translate technical constraints into productization stages."], ["Product Policy & Scenarios", "Design operating policies and product scenarios covering installation, reassignment, logistics, failures, and exception cases."], ["PM & Communication", "Coordinate objectives, scope, risks, and decisions across strategy, product, UX, engineering, sales, global subsidiaries, and customers."], ["Leadership", "Mentor two product designers transitioning into planning roles, including work allocation, product-domain training, deliverable reviews, and direction setting."], ["PoC & Prototype Validation", "Use working prototypes and field PoCs to validate product scenarios, technical feasibility, and stakeholder expectations before development."]], "careers": [["SOLUM", "Full-time", "Yongin, Gyeonggi-do, Korea · On-site", "Mar 2025 – Present", [["Product Manager - Business & Product Strategy Group", "May 2026 – Present"], ["Service Planner - CX Group", "Mar 2025 – Apr 2026 · 1 yr 2 mos"]]], ["Seowon Information Co., Ltd.", "Service Planning · Full-time", "Seoul, Korea · On-site", "Jun 2023 – Mar 2025 · 1 yr 10 mos", [["Service Planner", "Enterprise portal and cloud-native PaaS delivery projects"]]]] } };
-        const P = [
-            { cat: 'pm platform', ko: ['Ontology 기반 AI 플랫폼 기획 및 제품화 TF', '전략기획그룹 PM|AI Platform|Productization', '2026.04 ~', 'Map, Ontology, Graph Database, GraphRAG 및 AI Agent를 기반으로 Shelf·Product·ESL·Camera·Sensor 데이터를 연결하고 통합 관제와 AI Insight를 제공하는 자사 AI 플랫폼 제품화 프로젝트입니다.', ['Product Concept, Target User, 핵심 가치 및 SaaS Platform 내 역할 정의', '자연어 질의, 관계 분석, 실시간 상태 조회 및 AI Agent Use Case 기획', '카메라, Signage, Power Rail, Digital Twin, SaaS 등 5개 연계 제품 Roadmap 통합', 'Roadmap 항목을 MRD·PRD와 개발과제로 연결하고 TF의 Scope, R&R, 이슈 및 의사결정 관리', '국내외 대형 리테일 업체 대상 PoC에서 TPM 역할로 고객 요구사항, 기술 범위 및 검증 시나리오 커뮤니케이션'], ['5개 제품 영역의 Roadmap을 하나의 제품화 관점으로 통합', '선행기술을 사용자·사업 가치 중심의 AI Platform Concept으로 전환', '국내외 대형 리테일 업체 PoC를 통해 제품 시나리오와 기술 검증 범위 구체화', 'PRD·Use Case·Prototype·API Flow 기반 협업체계 구축'], 'Product Concept & Vision, MRD·PRD, Role-Based Use Case, AI Prompt Scenario, Product Roadmap, Prototype'], en: ['Ontology-based AI Platform Planning & Productization TF', 'Product Strategy PM|AI Platform|Productization', 'Apr 2026 – Present', 'Productization initiative for an in-house AI platform that connects Shelf, Product, ESL, Camera, and Sensor data through maps, ontologies, graph databases, GraphRAG, and AI agents to deliver unified monitoring and AI insights.', ['Defined the product concept, target users, core value, and role within the SaaS platform', 'Designed use cases for natural-language queries, relationship analysis, real-time status checks, and AI agents', 'Integrated roadmaps across five connected product areas: camera, signage, power rail, digital twin, and SaaS', 'Connected roadmap items to MRDs, PRDs, and development initiatives while managing scope, R&R, issues, and decisions', 'Served as TPM in PoCs with major domestic and global retailers, aligning customer needs, technical scope, and validation scenarios'], ['Integrated roadmaps across five product areas into a single productization view', 'Reframed advanced technology into an AI platform concept centered on user and business value', 'Refined product scenarios and technical validation scope through retailer PoCs', 'Established a collaboration model based on PRDs, use cases, prototypes, and API flows'], 'Product Concept & Vision, MRD/PRD, role-based use cases, AI prompt scenarios, product roadmap, prototype'] },
-            { cat: 'pm platform', ko: ['자사 SaaS Platform 제품 개선', 'Product PM|SaaS Platform|Product Architecture', '2026.05 ~', '글로벌 고객이 사용 중인 Retail IoT SaaS Platform의 분산 기능을 사용자 업무 중심으로 재구성하고 AI 플랫폼과 별도 서비스를 수용할 수 있도록 제품 구조와 확장 원칙을 개선했습니다.', ['기존 메뉴·기능·권한·사용 흐름 분석 및 목적 중심 기능 재분류', 'Platform 공통기능과 별도 Application 간 기능 Boundary 정의', 'SSO 기반 진입 구조와 사용자별 Redirect·Onboarding 정책 설계', 'Web 관리자와 현장 Mobile 사용자의 업무 목적 및 기능 Scope 분리', '기존·신규 UI 병행에 따른 중복개발과 유지보수 리스크 검토 및 단계별 적용범위 협의'], ['Device 기준 기능 구조를 사용자 업무 목적 중심으로 재설계', 'Platform Core와 복수 Application의 확장 기준 수립', 'Frontend 중심 개선 방향으로 Backend 대규모 변경 리스크 제한', 'IA, 역할, 권한, 진입정책, Web·Mobile 구분을 개발 Hand-off 수준으로 구체화'], 'As-Is/To-Be IA, 기능분류표, 진입정책, Web·Mobile Flow, Action Hierarchy, 개발 Hand-off 문서'], en: ['In-house SaaS Platform Improvement', 'Product PM|SaaS Platform|Product Architecture', 'May 2026 – Present', 'Restructured fragmented capabilities in a globally operated Retail IoT SaaS platform around user tasks and improved the product architecture and extensibility principles needed to accommodate an AI platform and standalone applications.', ['Analyzed menus, functions, permissions, and user flows and reclassified features around user intent', 'Defined boundaries between platform common functions and standalone applications', 'Designed SSO entry points and redirect/onboarding policies by user type', 'Separated the purpose and functional scope of web administrators and field mobile users', 'Assessed duplicate-development and maintenance risks from parallel legacy/new UI operation and aligned phased rollout scope'], ['Reorganized a device-centric feature structure around user tasks', 'Established extensibility principles for the platform core and multiple applications', 'Limited backend change risk through a frontend-led improvement strategy', 'Specified IA, roles, permissions, entry policies, and web/mobile separation at development handoff level'], 'As-Is/To-Be IA, feature taxonomy, entry policies, web/mobile flows, action hierarchy, development handoff documents'] },
-            { cat: 'pm', ko: ['선반 재고 모니터링 카메라 솔루션 제품 개선', 'Product PM|Computer Vision|Product Improvement', '2026.04 ~ 2026.08', '선반 촬영 및 상품 진열상태 분석 카메라 솔루션의 기존 Software를 대상으로 Dashboard, Device 관리, Shelf Image 관리 및 ROG/OOS 결과 확인 흐름을 제품 관점에서 개선했습니다.', ['Dashboard, Device, Shelf Image, History 및 분석결과 기능 분석', 'Camera 상태관리, 설정, 촬영, 결과 확인의 End-to-End Flow 및 정보구조 정의', '내부 Debugging 중심 결과를 상품·상태·위치 맥락 중심으로 재설계', 'ROI·AOI, Layer Hierarchy, 편집·완료 상태 및 초기 Setup 규칙 정의', 'PRD와 Interactive Prototype 기반으로 HQ·글로벌 개발조직의 구현 가능성 검토'], ['4개 핵심 영역의 기능·정보구조·사용 Flow 재정의', 'Camera 관리부터 촬영 및 분석결과 확인까지 사용자 여정 통합', 'PRD + Prototype 기반 개발 전 요구사항 검증체계 마련'], '제품 개선 PRD, 화면설계서, ROG/OOS 개선안, ROI·AOI 정책, Interactive Prototype'], en: ['Shelf Inventory Monitoring Camera Solution Improvement', 'Product PM|Computer Vision|Product Improvement', 'Apr 2026 – Aug 2026', 'Improved the existing software experience for a shelf-imaging and merchandising-state analysis camera solution, covering dashboards, device management, shelf image management, and ROG/OOS result review.', ['Analyzed dashboard, device, shelf image, history, and analytics-result functions', 'Defined end-to-end flows and information architecture for camera status, settings, capture, and result review', 'Redesigned internal debugging-oriented results around product, status, and location context', 'Defined ROI/AOI, layer hierarchy, edit/completion states, and initial setup rules', 'Reviewed implementation feasibility with HQ and global engineering teams using PRDs and interactive prototypes'], ['Redefined functions, information architecture, and flows across four core areas', 'Unified the journey from camera management through capture and result review', 'Established pre-development requirement validation using PRDs and prototypes'], 'Product improvement PRD, screen specifications, ROG/OOS proposal, ROI/AOI policies, interactive prototype'] },
-            { cat: 'pm policy', ko: ['Company Whitelist 신규 Feature 기획', 'Product PM|Product Policy|Global Requirement', '2026.07 ~', '인접 매장 간 ESL Tag 오연결과 고객의 매장별 등록 부담을 해결하기 위해 Store 단위 정책을 Company 단위 운영정책과 등록 Feature로 재설계했습니다.', ['Factory·Subsidiary·Warehouse·Reseller·SI·Customer·HQ를 연결한 등록 Lifecycle 정의', 'Box·Lot 기반 MAC List와 Company Code 등록정책 설계', '직출하, 분할출하, 고객변경, RMA, 재판매, Shop-in-Shop, Legacy Tag Corner Case 구조화', '유럽·미주·일본 법인 의견 취합 및 공통 요구사항·지역 예외조건 정리', 'RMS·SAP·Whitelist Server·Core·Gateway·Tag 간 System Boundary와 권한·검증·이력 요건 정의'], ['Whitelist 관리단위를 Store에서 Company로 전환', '3개 글로벌 권역의 의견과 Corner Case를 제품요구사항으로 통합', '생산·출하·유통·설치·운영·RMA를 포괄하는 End-to-End Lifecycle 정의', 'Server·Gateway·Core·Firmware·Application의 개발 검토영역 분리'], '제품정책서, Corner Case Matrix, Process Swimlane, R&R, Application 비교안, 연동 요구사항'], en: ['Company Whitelist Feature Planning', 'Product PM|Product Policy|Global Requirements', 'Jul 2026 – Present', 'Redesigned a store-level whitelist policy into a company-level operating policy and registration feature to prevent ESL tags from connecting to adjacent stores and reduce per-store registration burden.', ['Defined a registration lifecycle spanning factories, subsidiaries, warehouses, resellers, SIs, customers, and HQ', 'Designed Box/Lot-based MAC list and Company Code registration policies', 'Structured corner cases for direct shipping, split shipment, customer change, RMA, resale, shop-in-shop, and legacy tags', 'Consolidated input from European, U.S., and Japanese subsidiaries into common requirements and regional exceptions', 'Defined system boundaries and permission, validation, and history requirements across RMS, SAP, whitelist server, core, gateway, and tag'], ['Shifted whitelist management from Store to Company', 'Integrated input and corner cases from three global regions into product requirements', 'Defined an end-to-end lifecycle spanning production, shipment, distribution, installation, operation, and RMA', 'Separated engineering review areas across server, gateway, core, firmware, and application'], 'Product policy, corner-case matrix, process swimlane, R&R, application comparison, integration requirements'] },
-            { cat: 'tpm platform', ko: ['RFID 기반 선반 재고 센서 솔루션 PoC', 'Technical PM|RFID|B2B PoC', '2026.06 ~', '글로벌 의류 제조·리테일 기업을 대상으로 RFID Reader와 자사 SaaS Platform의 Digital Twin을 연결해 Rack별 상품수량과 배치변화를 시각화한 PoC입니다.', ['현장 실사를 통한 Rack 구조, 상품배치, Reader 설치 및 운영환경 분석', 'Scan → 수량 갱신 → 상품 이동 → 재스캔 → 증감 확인의 5-Step Scenario 설계', 'Reader Health, Scan Transaction, Rack Quantity API와 UI 정보 Mapping', 'EPC·UPC·Product·Rack Mapping Requirement 정의', 'Working Prototype을 활용해 고객·사업·HW·SW 개발조직의 목표와 범위 조율'], ['RFID Reader 40대 규모 PoC 기획', '5단계 운영 Scenario와 Digital Twin Dashboard 정의', '기술 검증을 매장 운영자가 이해할 수 있는 재고관리 Flow로 전환', '제품조직 인계용 API·UI Mapping 및 운영 요구사항 체계화'], 'Demo Scenario, Dashboard Spec, Working HTML Prototype, API·UI Mapping, 제품조직 Hand-off'], en: ['RFID-based Shelf Inventory Sensor Solution PoC', 'Technical PM|RFID|B2B PoC', 'Jun 2026 – Present', 'A PoC for a global apparel manufacturing and retail company that connected RFID readers to the digital twin of an in-house SaaS platform to visualize product quantities and placement changes by rack.', ['Analyzed rack structure, product placement, reader installation, and operating conditions through an on-site assessment', 'Designed a five-step scenario: scan, quantity update, product move, rescan, and variance review', 'Mapped Reader Health, Scan Transaction, and Rack Quantity APIs to UI information', 'Defined EPC, UPC, Product, and Rack mapping requirements', 'Aligned goals and scope across customer, business, hardware, and software teams using a working prototype'], ['Planned a PoC involving 40 RFID readers', 'Defined a five-step operating scenario and digital twin dashboard', 'Translated technical validation into an inventory-management flow understandable to store operators', 'Structured API/UI mappings and operating requirements for handoff to the product organization'], 'Demo scenario, dashboard specification, working HTML prototype, API/UI mapping, product handoff'] },
-            { cat: 'tpm policy', ko: ['Power Rail BLE Beaconing 신규 Feature 기획', 'Technical PM|BLE Beacon|Feature Planning', '2026.07 ~', 'Power Rail Controller의 BLE 기능을 활용해 상품탐색과 Picking을 지원하는 근접 Triggering Feature의 제품 시나리오, 정책 및 기술 적용범위를 기획했습니다.', ['Always-On Tracking의 전력, 통신성능 및 인프라 한계 분석', 'Task 시점과 구역만 활성화하는 On-Demand Beaconing Concept 정의', 'Product Finding, Proximity Blinking, Order Picking Scenario 기획', 'Server·Gateway·Controller·Mobile App·ESL LED의 역할과 End-to-End Flow 정의', 'Demo 기능, 추가개발 항목 및 상용화 미확정 범위를 구분하고 제품·개발·사업 조직과 커뮤니케이션'], ['상시 Tracking 요구를 On-Demand Triggering Scenario로 전환', '5개 System Component의 역할과 동작구조 정의', '기술기능을 Product Finding과 Picking의 사용자 가치로 구체화', 'Demo·PoC와 상용 Scope를 구분해 커뮤니케이션 리스크 관리'], 'Product Concept, 업무 Scenario, System Flow, App Guide, 기술제약 및 제품화 Scope'], en: ['Power Rail BLE Beaconing Feature Planning', 'Technical PM|BLE Beacon|Feature Planning', 'Jul 2026 – Present', 'Planned the product scenarios, policies, and technical scope for a proximity-triggering feature that uses BLE capabilities in the Power Rail Controller to support product finding and order picking.', ['Analyzed power, communication-performance, and infrastructure constraints of always-on tracking', 'Defined an on-demand beaconing concept activated only for the relevant task and area', 'Designed Product Finding, Proximity Blinking, and Order Picking scenarios', 'Defined roles and end-to-end flows across server, gateway, controller, mobile app, and ESL LED', 'Separated demo functions, additional development items, and unconfirmed commercialization scope and communicated them across product, engineering, and business teams'], ['Reframed always-on tracking needs into an on-demand triggering scenario', 'Defined roles and operating flows across five system components', 'Translated a technical capability into user value for product finding and picking', 'Reduced communication risk by separating demo/PoC scope from commercial product scope'], 'Product concept, operating scenarios, system flow, app guide, technical constraints, productization scope'] },
-            { cat: 'platform', ko: ['CubeX 클라우드 네이티브 PaaS 구축', 'Service Planning|Cloud Native PaaS|Public Project', '2024.04 ~ 2024.11', 'Kubernetes 기반 클라우드 네이티브 PaaS 플랫폼 구축 프로젝트로 고객 요구사항을 분석해 플랫폼 기능 구조와 Application Lifecycle을 기획하고 MVP 검증 및 개발 일정을 관리했습니다.', ['고객 요구사항 분석 및 플랫폼 기능 구조 설계', 'One-Step Application 생성, Application Management, Auto Scaling 등 Application Lifecycle 기능 기획', 'PRD 및 Figma 기반 화면 설계와 기능 우선순위 정의', 'AI 디자인 도구를 활용한 MVP 핵심 기능 검증', '개발팀 협업 및 구축 일정 관리'], ['AI 디자인 도구를 활용해 MVP 검증을 1개월 내 완료', '핵심 기능 중심 개발 전략으로 일정 내 플랫폼 구축 완료', '공공기관 플랫폼 구축으로 약 4억 원 규모 매출 기여'], 'Service Planning, Requirement Analysis, PRD, Cloud Platform, Figma, MVP Validation'], en: ['CubeX Cloud-native PaaS Implementation', 'Service Planning|Cloud-native PaaS|Public Sector', 'Apr 2024 – Nov 2024', 'Kubernetes-based cloud-native PaaS implementation in which customer requirements were translated into platform architecture and application lifecycle features, with responsibility for MVP validation and delivery scheduling.', ['Analyzed customer requirements and designed the platform feature structure', 'Planned application lifecycle functions including one-step application creation, application management, and auto scaling', 'Defined UI specifications and feature priorities using PRDs and Figma', 'Validated core MVP functions using AI design tools', 'Coordinated with the engineering team and managed delivery schedules'], ['Completed MVP validation within one month using AI design tools', 'Completed platform delivery on schedule through a core-feature-focused strategy', 'Contributed to approximately KRW 400 million in revenue through a public-sector platform engagement'], 'Service planning, requirement analysis, PRD, cloud platform, Figma, MVP validation'] },
-            { cat: '', ko: ['현대엔지니어링 Q-Portal 구축', 'Service Planning|Enterprise Portal|SI Project', '2023.08 ~ 2024.02', '건설 현장의 품질관리 업무를 통합 지원하는 포털 구축 프로젝트로 분리 운영되던 품질관리 시스템을 업무 프로세스 기준으로 통합하고 자재 승인 및 품질보고서 작성 과정을 개선했습니다.', ['기존 품질관리 시스템 분석 및 업무 프로세스 기반 통합 기능구조 설계', '자재 공급 승인 및 품질보고서 작성 프로세스 개선', '프로젝트별 분산 체크리스트를 조직 단위로 재사용하는 Knowledge Data 구조 설계', '품질시험 설정을 고정 3회에서 최대 6회까지 지원하도록 기능 확장', '기능정의서 및 Figma 화면설계, 개발 협업, QA와 고객 요구사항 조율'], ['보고서 작성 건수 1,096건 → 515건, 약 53% 감소', '결재 반려 건수 63건 → 6건, 약 90% 감소', '현장 품질관리 업무 프로세스 단순화 및 데이터 재사용 구조 마련'], 'Service Planning, Requirement Analysis, Enterprise System, Figma, QA, Customer Communication'], en: ['Hyundai Engineering Q-Portal Implementation', 'Service Planning|Enterprise Portal|SI Project', 'Aug 2023 – Feb 2024', 'Enterprise portal implementation supporting construction-site quality management. The project unified separately operated quality systems around business processes and improved material approval and quality-report workflows.', ['Analyzed existing quality-management systems and designed an integrated feature structure around business processes', 'Improved material supply approval and quality-report workflows', 'Designed a knowledge-data structure to reuse project-specific checklists at the organizational level', 'Expanded quality-test settings from a fixed three rounds to up to six rounds', 'Produced functional specifications and Figma designs and coordinated engineering, QA, and customer requirements'], ['Reduced report creation volume from 1,096 to 515, approximately 53%', 'Reduced approval rejections from 63 to 6, approximately 90%', 'Simplified field quality-management processes and established a reusable data structure'], 'Service planning, requirement analysis, enterprise systems, Figma, QA, customer communication'] }
-        ];
-        const SK = ['Product Strategy', 'Technical PM', 'Product Roadmap', 'MRD / PRD', 'Product Policy', 'Requirement Management', 'IoT Architecture', 'API Analysis', 'System Boundary', 'Working Prototype', 'B2B PoC', 'SaaS Platform', 'Ontology', 'GraphRAG', 'AI Agent', 'Digital Twin', 'Computer Vision', 'RFID', 'BLE', 'Figma', 'Microsoft Copilot', 'Global Communication']; let lang = localStorage.portfolioLang || 'ko', filter = 'all', expanded = false;
-        function render() { let d = D[lang]; document.documentElement.lang = lang; document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang)); heroTitle.textContent = d.title; heroSummary.textContent = d.summary; viewProjects.textContent = d.view; copy.textContent = d.copy; roleTitle.textContent = d.roleTitle; roleLead.textContent = d.roleLead; expTitle.textContent = d.expTitle; expLead.textContent = d.expLead; projTitle.textContent = d.projTitle; projLead.textContent = d.projLead; countLabel.textContent = d.count; search.placeholder = d.search; skillTitle.textContent = d.skillTitle; roleGrid.innerHTML = d.roles.map(x => `<div class="card"><b>${x[0]}</b><p>${x[1]}</p></div>`).join(''); careerList.innerHTML = d.careers.map(c => `<div class="career"><div class="career-head"><div><div class="company">${c[0]}</div><div class="meta">${c[1]}</div><div class="meta">${c[2]}</div></div><div class="period">${c[3]}</div></div><div class="timeline">${c[4].map(r => `<div class="career-role"><strong>${r[0]}</strong><br><small>${r[1]}</small></div>`).join('')}</div></div>`).join(''); projectList.innerHTML = P.map((p, i) => { let x = p[lang]; return `<article class="project ${i === 0 ? 'open' : ''}" data-cat="${p.cat}" data-search="${x.join(' ').toLowerCase()}"><div class="project-top" tabindex="0"><div><h3>${x[0]}</h3><div class="tags">${x[1].split('|').map(t => `<span class="tag">${t}</span>`).join('')}</div></div><div class="period">${x[2]}</div><button class="toggle">${i === 0 ? '−' : '+'}</button></div><div class="project-detail"><p class="desc">${x[3]}</p><div class="cols"><div><p class="label">${d.main}</p><ul>${x[4].map(v => `<li>${v}</li>`).join('')}</ul></div><div><p class="label">${d.result}</p><div class="results"><ul>${x[5].map(v => `<li>${v}</li>`).join('')}</ul></div><p class="deliver"><b>${i > 5 ? d.cap : d.deliver}</b> ${x[6]}</p></div></div></div></article>` }).join(''); skillList.innerHTML = SK.map(x => `<span>${x}</span>`).join(''); bind(); apply() }
-        function bind() { document.querySelectorAll('.project-top').forEach(t => { const go = () => { let a = t.closest('.project'); a.classList.toggle('open'); t.querySelector('.toggle').textContent = a.classList.contains('open') ? '−' : '+' }; t.onclick = e => go(); t.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go() } } }) } function apply() { let q = search.value.trim().toLowerCase(), n = 0; document.querySelectorAll('.project').forEach(a => { let ok = (filter === 'all' || a.dataset.cat.includes(filter)) && (!q || a.dataset.search.includes(q)); a.classList.toggle('hidden', !ok); if (ok) n++ }); count.textContent = n } document.querySelectorAll('.lang button').forEach(b => b.onclick = () => { lang = b.dataset.lang; localStorage.portfolioLang = lang; render() }); document.querySelectorAll('.filters button').forEach(b => b.onclick = () => { document.querySelectorAll('.filters button').forEach(x => x.classList.remove('on')); b.classList.add('on'); filter = b.dataset.filter; apply() }); search.oninput = apply; expand.onclick = () => { expanded = !expanded; document.querySelectorAll('.project:not(.hidden)').forEach(a => { a.classList.toggle('open', expanded); a.querySelector('.toggle').textContent = expanded ? '−' : '+' }); expand.textContent = expanded ? (lang === 'ko' ? '전체 접기' : 'Collapse all') : (lang === 'ko' ? '전체 펼치기' : 'Expand all') }; copy.onclick = async () => { try { await navigator.clipboard.writeText(heroSummary.textContent); copy.textContent = lang === 'ko' ? '복사 완료' : 'Copied'; setTimeout(() => copy.textContent = D[lang].copy, 1200) } catch { } }; document.getElementById('top').onclick = (event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }; addEventListener('scroll', () => { document.querySelector('.progress i').style.width = (scrollY / (document.documentElement.scrollHeight - innerHeight) * 100) + '%' }); const spy = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('.nav a').forEach(a => a.classList.toggle('active', a.dataset.nav === e.target.id)) }), { rootMargin: '-35% 0px -55%' }); document.querySelectorAll('section[id]').forEach(x => spy.observe(x)); render();
-    
-        window.onclick = null;
-        // Interaction stability patch: keep the active control anchored while dynamic content changes height.
-        (() => {
-            const $ = (selector, root = document) => root.querySelector(selector);
-            const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-            const toolbar = $('.toolbar');
-            const projectListEl = $('#projectList');
-            // Reserve the unfiltered list height so filters never collapse the document and move the viewport.
-            if (projectListEl) projectListEl.style.minHeight = projectListEl.scrollHeight + 'px';
-            const expandButton = $('#expand');
-            const topButton = $('#top');
-            const searchInput = $('#search');
-            let anchor = null;
-            const remember = el => {
-                if (!el) return;
-                anchor = { el, top: el.getBoundingClientRect().top, scrollY: window.scrollY };
-            };
-            const restore = () => requestAnimationFrame(() => requestAnimationFrame(() => {
-                if (!anchor || !anchor.el || !document.contains(anchor.el)) { anchor = null; return; }
-                const delta = anchor.el.getBoundingClientRect().top - anchor.top;
-                if (Math.abs(delta) > 0.5) window.scrollBy({ top: delta, behavior: 'auto' });
-                anchor = null;
-            }));
-            // Filters and search mutate project visibility and therefore page height.
-            $$('.filters button').forEach(button => button.addEventListener('click', () => { remember(toolbar); restore(); }, true));
-            if (searchInput) {
-                searchInput.addEventListener('input', () => { remember(toolbar); restore(); }, true);
-                searchInput.addEventListener('keydown', event => {
-                    if (event.key === 'Enter') event.preventDefault();
-                });
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
             }
-            // Expanding all projects must not throw the toolbar out of the viewport.
-            if (expandButton) expandButton.addEventListener('click', () => { remember(expandButton); restore(); }, true);
-            // Keep the clicked project header stable when opening or closing a project.
-            if (projectListEl) projectListEl.addEventListener('click', event => {
-                const header = event.target.closest('.project-top');
-                if (!header) return;
-                remember(header);
-                restore();
-            }, true);
-            // Explicit references avoid collisions with window.top and legacy global IDs.
-            if (topButton) topButton.onclick = event => {
-                event.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-            // Buttons are controls, never implicit submit buttons.
-            $$('button').forEach(button => { if (!button.hasAttribute('type')) button.type = 'button'; });
-            // Initial toolbar labels should match the selected language.
-            const syncUtilityCopy = () => {
-                if (expandButton) expandButton.textContent = expanded
-                    ? (lang === 'ko' ? '전체 접기' : 'Collapse all')
-                    : (lang === 'ko' ? '전체 펼치기' : 'Expand all');
-            };
-            $$('.lang button').forEach(button => button.addEventListener('click', syncUtilityCopy));
-            syncUtilityCopy();
-        })();
-</script>
-<script id="firebase-visitor-tracker" type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, runTransaction, onValue, set, update, onDisconnect, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+        }
+    </style>
+</head>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBiWQBa8JDd2vWI3Xt8j7MkHYOOFyzIrHg",
-  authDomain: "yeom-tracker.firebaseapp.com",
-  databaseURL: "https://yeom-tracker-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "yeom-tracker",
-  storageBucket: "yeom-tracker.firebasestorage.app",
-  messagingSenderId: "123068953287",
-  appId: "1:123068953287:web:197c70749c6c61d34584e2"
-};
+<body>
+    <div class="topbar">
+        <div class="topbar-inner"><a class="brand" href="#top" id="brand">염종협</a>
+            <div class="header-right">
+                <nav class="nav" aria-label="Sections"><a href="#featured" data-nav></a><a href="#earlier"
+                        data-nav></a><a href="#experience" data-nav></a></nav>
+                <div class="language" role="group" aria-label="Language"><button type="button" data-lang="ko"
+                        aria-label="한국어">KO</button><button type="button" data-lang="en"
+                        aria-label="English">EN</button></div>
+            </div>
+        </div>
+    </div>
+    <main id="content" class="container"></main>
+    <script>
+        const DATA = {"ko": {"title": "제품전략·상품기획자", "name": "염종협", "intro": "기술과 사업을 함께 이해하고, 고객의 문제를 제품 전략으로 풀어내 다양한 조직과의 협업을 통해 실행으로 연결합니다.", "hero": "기존 SaaS Service의 상품성을 개선하고, 운영 데이터와 현장 기능을 부가 서비스로 연결해 <strong>반복 매출의 기반이 되는 상품 로드맵<\/strong>을 수립했습니다.", "nav": ["대표 사례", "이전 프로젝트", "경력"], "period": "2026.04 – 2026.12 · 개발 진행 중", "case": "대표 사례", "case_title": "SaaS를 HW의 Bundle 제품에서 지속적인 매출을 발생시킬 수 있는 상품으로", "case_sub": "자사 SaaS 플랫폼 상품 전략 및 Value-added Service 로드맵", "takeaway": "제가 수립한 것은 개별 기능의 목록이 아니라, 고객이 SaaS를 도입하고 계속 사용할 이유를 만드는 통합 상품 로드맵입니다.", "problem_label": "01 / 문제 정의", "problem_title": "HW만으로는 차별화하기 어려운데, SaaS도 선택할 이유가 부족했다", "problem_text": "HW 중심으로 성장해 온 사업은 가격 경쟁이 심해질수록 납품만으로 고객 관계를 이어가기 어려웠습니다. SW가 그 역할을 해야 했지만, 기존 SaaS는 개발자 관점에서 기능이 쌓였고 IA가 부재해 필요한 기능을 찾고 사용하는 과정부터 어려웠습니다. 새로운 기능을 더하는 것만으로는 상품성이 생기지 않는 상태였습니다.", "question_label": "핵심 질문", "question": "“고객이 왜 우리 SaaS를 쓰기 시작하고, HW 납품 이후에도 왜 계속 써야 하는가?”", "thought_label": "02 / 판단과 설계", "thought_title": "기능을 추가하기 전에, 고객이 가치를 얻는 순서를 정했다", "thought_intro": "문제를 UI 불편으로만 좁히지 않았습니다. 도입 장벽, SaaS 전환 이유, 납품 이후의 지속 이용 가치를 각각 분리해 보고, 이를 하나의 로드맵으로 연결했습니다.", "thinking": [["01", "먼저 쓸 수 있어야 한다", "IA와 선반 모니터링 UX를 정비해 기존 SaaS의 탐색·운영 경험을 개선한다."], ["02", "전환할 이유가 있어야 한다", "분산된 리테일 데이터를 Shelf 중심 Digital Twin과 AI 인사이트로 연결한다."], ["03", "계속 쓸 이유가 있어야 한다", "ESL 생애주기 관리와 위치 기반 현장 작업을 납품 이후의 서비스 가치로 확장한다."]], "execution_label": "03 / 해결 설계", "execution_title": "전략을 실제 서비스와 개발 범위로 내렸다", "problem": "어떤 문제였나", "decision": "어떻게 풀었나", "value": "고객이 얻는 가치", "streams": [["SaaS 사용성 · 선반 모니터링 UX", "기기·개발 관점의 메뉴 구조와 분절된 선반 분석 화면 때문에 업무 흐름을 따라가기 어려웠습니다.", "사용자 업무 기준으로 IA와 Platform Core·별도 App의 경계를 재설계했습니다. Camera 상태·촬영·Shelf Image·ROG/OOS 결과를 하나의 흐름으로 연결하고, 상품·상태·위치 중심으로 결과를 재구성했습니다.", "필요한 기능을 찾고 선반 상태를 이해하는 기본 경험을 개선합니다."], ["AIR · Digital Twin과 AI", "ESL·Camera·Sensor·Signage 데이터가 흩어져 있어 선반 단위의 상태와 관계를 한눈에 볼 수 없었습니다.", "Graph DB와 Ontology로 데이터를 연결하고, 매장 도면 기반 Virtual Map의 Shelf에 상품·기기·상태를 연계했습니다. 이 관계를 조회·분석하는 AI Agent 시나리오를 기획했습니다.", "기존 On-premise 기능과 구별되는 SaaS 운영 인사이트를 제공합니다."], ["ESL 연결 정책 · 생애주기 관리", "인접 매장의 Gateway에 ESL이 잘못 연결되는 것을 막아야 했지만, 고객이 매장마다 Box를 스캔하는 방식은 부담이 컸습니다.", "Company Whitelist를 고객사 단위 연결 허용 정책으로 설계했습니다. 출하 시 Box/MAC·Company Code 매핑과 변경·RMA 예외를 정의하고, 생산·납품·사용·재할당·RMA 이력을 서버에서 관리하는 서비스로 확장했습니다.", "오연결과 등록 부담을 줄이고, 납품 이후 ESL 자산을 지속 관리할 기반을 만듭니다."], ["Power Rail BLE · 현장 작업", "상품 위치 찾기와 Picking에 위치 기반 상호작용이 필요했지만 상시 BLE Tracking은 전력·인프라 제약이 있었습니다.", "작업 시점과 구역에서만 활성화하는 On-Demand Beaconing을 기획했습니다. 스마트폰·Power Rail·Gateway·ESL LED 간 동작을 정의해 상품 찾기, 근접 알림, Picking 흐름을 연결했습니다.", "현장 작업자가 위치를 파악하고 스마트폰과 설비의 상호작용으로 탐색·Picking을 수행할 수 있습니다."]], "outcome_label": "04 / 결론", "outcome_title": "SW Recurring 매출을 위한 상품 기반을 설계했다", "outcome_text": "SaaS 사용성 개선, AIR, ESL 생애주기 관리, Power Rail 현장 작업을 <strong>하나의 Value-added Service 로드맵<\/strong>으로 수립했습니다. 상위 상품 전략을 IA·사용자 시나리오·데이터 관계·운영정책·개발 범위까지 구체화해, 기존 HW 고객이 SaaS를 도입하고 지속 이용할 수 있는 상품·운영 구조를 설계했습니다. 현재 2026년 말 목표로 개발이 진행 중입니다.", "deliver_label": "기획 범위", "deliver": "상품 전략 및 로드맵 · IA · PRD · Prototype · 데이터 관계 · 운영정책 · System Flow · 개발 Hand-off", "other_label": "이전 프로젝트", "other_intro": "이전의 플랫폼·엔터프라이즈 구축 경험입니다.", "career_label": "경력", "career_intro": "제품 전략과 서비스 기획을 중심으로 일해 왔습니다.", "results": "주요 결과", "work": "수행 내용", "footer": "제품 전략·상품기획 포트폴리오 · 2026.09", "older": [{"title": "CubeX 클라우드 네이티브 PaaS 구축", "period": "2024.04 ~ 2024.11", "desc": "Kubernetes 기반 클라우드 네이티브 PaaS 플랫폼 구축 프로젝트로 고객 요구사항을 분석해 플랫폼 기능 구조와 Application Lifecycle을 기획하고 MVP 검증 및 개발 일정을 관리했습니다.", "work": ["고객 요구사항 분석 및 플랫폼 기능 구조 설계", "One-Step Application 생성, Application Management, Auto Scaling 등 Application Lifecycle 기능 기획", "PRD 및 Figma 기반 화면 설계와 기능 우선순위 정의", "AI 디자인 도구를 활용한 MVP 핵심 기능 검증", "개발팀 협업 및 구축 일정 관리"], "results": ["AI 디자인 도구를 활용해 MVP 검증을 1개월 내 완료", "핵심 기능 중심 개발 전략으로 일정 내 플랫폼 구축 완료", "공공기관 플랫폼 구축으로 약 4억 원 규모 매출 기여"]}, {"title": "현대엔지니어링 Q-Portal 구축", "period": "2023.08 ~ 2024.02", "desc": "건설 현장의 품질관리 업무를 통합 지원하는 포털 구축 프로젝트로 분리 운영되던 품질관리 시스템을 업무 프로세스 기준으로 통합하고 자재 승인 및 품질보고서 작성 과정을 개선했습니다.", "work": ["기존 품질관리 시스템 분석 및 업무 프로세스 기반 통합 기능구조 설계", "자재 공급 승인 및 품질보고서 작성 프로세스 개선", "프로젝트별 분산 체크리스트를 조직 단위로 재사용하는 Knowledge Data 구조 설계", "품질시험 설정을 고정 3회에서 최대 6회까지 지원하도록 기능 확장", "기능정의서 및 Figma 화면설계, 개발 협업, QA와 고객 요구사항 조율"], "results": ["보고서 작성 건수 1,096건 → 515건, 약 53% 감소", "결재 반려 건수 63건 → 6건, 약 90% 감소", "현장 품질관리 업무 프로세스 단순화 및 데이터 재사용 구조 마련"]}], "careers": [{"name": "SOLUM", "period": "2025.03 – 현재", "roles": ["Product Manager - Business & Product Strategy Group", "Service Planner - CX Group"]}, {"name": "㈜서원정보", "period": "2023.06 – 2025.03 · 1년 10개월", "roles": ["서비스 기획"]}]}, "en": {"title": "Product Strategy Portfolio", "name": "Jonghyeob Yeom", "intro": "I design reasons for customers to keep choosing software in a hardware-led business.", "hero": "I improved the foundations of an existing SaaS product and connected operational data and store-floor workflows into <strong>a product roadmap designed for recurring software revenue.<\/strong>", "nav": ["Featured case", "Earlier work", "Experience"], "period": "Apr – Dec 2026 · Development in progress", "case": "Featured case", "case_title": "Turning SaaS from a set of features into a product customers keep using", "case_sub": "SaaS product strategy and value-added service roadmap", "takeaway": "I established an integrated product roadmap, not a list of features: a reason to adopt SaaS and a reason to keep using it.", "problem_label": "01 / PROBLEM", "problem_title": "Hardware alone was hard to differentiate; SaaS did not yet offer a compelling alternative", "problem_text": "As hardware price competition intensified, delivery alone could not sustain the customer relationship. Software needed to provide ongoing value, but the existing SaaS product had a developer-centric feature structure and lacked clear information architecture. Finding and using capabilities was difficult. Simply adding more features would not make it a stronger product.", "question_label": "The question", "question": "“Why would customers adopt our SaaS, and why would they keep using it after hardware delivery?”", "thought_label": "02 / REASONING", "thought_title": "I defined the sequence of value before adding features", "thought_intro": "I did not treat this as a UI problem alone. I separated the barriers to adoption, the reason to move to SaaS, and the value customers would continue to receive after delivery, then connected them in one roadmap.", "thinking": [["01", "Make the product usable", "Improve IA and shelf-monitoring UX so customers can navigate and operate the existing SaaS product."], ["02", "Give customers a reason to migrate", "Connect retail data into shelf-centered digital twin and AI insights."], ["03", "Give customers a reason to stay", "Extend ESL lifecycle management and location-aware store-floor workflows into post-delivery services."]], "execution_label": "03 / SOLUTION DESIGN", "execution_title": "From product strategy to service and engineering scope", "problem": "The problem", "decision": "My approach", "value": "Customer value", "streams": [["SaaS usability · shelf-monitoring UX", "Device- and engineering-led menus and fragmented shelf-analysis screens made it hard to follow an operational workflow.", "I redesigned IA around user tasks and defined the boundary between platform core and standalone apps. I connected camera status, capture, shelf images, and ROG/OOS results into one journey, reframing results by product, status, and location.", "Customers can navigate functions and interpret shelf conditions more easily."], ["AIR · digital twin and AI", "ESL, camera, sensor, and signage data were fragmented, making shelf-level conditions and relationships hard to see.", "I linked the data through a graph database and ontology, associated products, devices, and status with shelves on a retail-floor-plan virtual map, and planned AI agent scenarios for querying and analyzing these relationships.", "SaaS provides operational insight beyond the existing on-premises feature set."], ["ESL connection policy · lifecycle management", "ESLs could connect to gateways in adjacent stores; asking customers to scan boxes for every store added operational friction.", "I designed Company Whitelist as a customer-level connection policy, including box/MAC-to-company mapping at shipment and reassignment and RMA exceptions. I extended the concept to server-side tracking of production, delivery, use, reassignment, and RMA events.", "Prevent incorrect connections, reduce registration work, and create a basis for ongoing ESL asset management."], ["Power Rail BLE · store-floor workflows", "Product finding and picking needed location-aware interaction, while continuous BLE tracking faced power and infrastructure constraints.", "I planned task- and area-triggered on-demand beaconing, defining interactions among smartphones, Power Rail, gateways, and ESL LEDs for product finding, proximity alerts, and picking.", "Store staff can locate products and carry out picking through location-aware interactions with equipment."]], "outcome_label": "04 / CONCLUSION", "outcome_title": "A product foundation for recurring SaaS software revenue", "outcome_text": "I established <strong>one value-added service roadmap<\/strong> spanning SaaS usability, AIR, ESL lifecycle management, and Power Rail workflows. I translated the product strategy into IA, user scenarios, data relationships, operating policies, and engineering scope, designing a product and operating foundation for hardware customers to adopt and keep using SaaS. Development is in progress toward December 2026.", "deliver_label": "Planning scope", "deliver": "Product strategy and roadmap · IA · PRD · prototype · data relationships · operating policies · system flows · engineering handoff", "other_label": "Earlier work", "other_intro": "Earlier platform and enterprise delivery experience.", "career_label": "Experience", "career_intro": "Product strategy and service planning across SaaS and enterprise platforms.", "results": "Outcomes", "work": "Responsibilities", "footer": "Product Strategy Portfolio · Sep 2026", "older": [{"title": "CubeX Cloud-native PaaS Implementation", "period": "Apr 2024 – Nov 2024", "desc": "Kubernetes-based cloud-native PaaS implementation in which customer requirements were translated into platform architecture and application lifecycle features, with responsibility for MVP validation and delivery scheduling.", "work": ["Analyzed customer requirements and designed the platform feature structure", "Planned application lifecycle functions including one-step application creation, application management, and auto scaling", "Defined UI specifications and feature priorities using PRDs and Figma", "Validated core MVP functions using AI design tools", "Coordinated with the engineering team and managed delivery schedules"], "results": ["Completed MVP validation within one month using AI design tools", "Completed platform delivery on schedule through a core-feature-focused strategy", "Contributed to approximately KRW 400 million in revenue through a public-sector platform engagement"]}, {"title": "Hyundai Engineering Q-Portal Implementation", "period": "Aug 2023 – Feb 2024", "desc": "Enterprise portal implementation supporting construction-site quality management. The project unified separately operated quality systems around business processes and improved material approval and quality-report workflows.", "work": ["Analyzed existing quality-management systems and designed an integrated feature structure around business processes", "Improved material supply approval and quality-report workflows", "Designed a knowledge-data structure to reuse project-specific checklists at the organizational level", "Expanded quality-test settings from a fixed three rounds to up to six rounds", "Produced functional specifications and Figma designs and coordinated engineering, QA, and customer requirements"], "results": ["Reduced report creation volume from 1,096 to 515, approximately 53%", "Reduced approval rejections from 63 to 6, approximately 90%", "Simplified field quality-management processes and established a reusable data structure"]}], "careers": [{"name": "SOLUM", "period": "Mar 2025 – Present", "roles": ["Product Manager - Business & Product Strategy Group", "Service Planner - CX Group"]}, {"name": "Seowon Information Co., Ltd.", "period": "Jun 2023 – Mar 2025 · 1 yr 10 mos", "roles": ["Service Planner"]}]}};
+        const root = document.getElementById('content');
+        const buttons = [...document.querySelectorAll('[data-lang]')];
+        const escapeHtml = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+        const e = escapeHtml;
+        const dl = (label, text) => `<dl class="detail"><dt>${e(label)}</dt><dd>${e(text)}</dd></dl>`;
+        const CAREER_START = {year: 2023, month: 6, day: 21};
+        function experienceMonths(now = new Date()) {
+            const parts = new Intl.DateTimeFormat('en-US', {timeZone: 'Asia/Seoul', year: 'numeric', month: 'numeric', day: 'numeric'}).formatToParts(now);
+            const date = Object.fromEntries(parts.filter(p => ['year', 'month', 'day'].includes(p.type)).map(p => [p.type, Number(p.value)]));
+            const months = (date.year - CAREER_START.year) * 12 + date.month - CAREER_START.month - (date.day < CAREER_START.day ? 1 : 0);
+            return Math.max(0, months);
+        }
+        function experienceLabel(lang) {
+            const months = experienceMonths(), years = Math.floor(months / 12), remainder = months % 12;
+            if (lang === 'ko') return `총 경력 ${years}년 ${remainder}개월`;
+            return `Total experience: ${years} ${years === 1 ? 'year' : 'years'} ${remainder} ${remainder === 1 ? 'month' : 'months'}`;
+        }
 
-const badge = document.getElementById('visitor-badge');
-const todayEl = document.getElementById('visitor-today');
-const totalEl = document.getElementById('visitor-total');
+        function render(lang) {
+            const d = DATA[lang]; document.documentElement.lang = lang; document.title = d.title;
+            document.getElementById('brand').textContent = d.name;
+            document.querySelectorAll('[data-nav]').forEach((x, i) => x.textContent = d.nav[i]);
+            buttons.forEach(b => {const on = b.dataset.lang === lang; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on));});
+            root.innerHTML = `
+ <header class="hero" id="top"><span class="eyebrow">${e(d.name)} / Portfolio</span><h1>${e(d.title)}</h1><p class="lead">${e(d.intro)}</p><p class="summary">${d.hero}</p><p class="hero-meta">${e(d.period)}</p></header>
+ <section class="section" id="featured"><div class="section-heading"><span class="kicker">01 / ${e(d.case)}</span><h2>${e(d.case_sub)}</h2></div>
+ <div class="case-intro"><h3>${e(d.case_title)}</h3><p class="meta">${e(d.period)}</p><p class="thesis">${e(d.takeaway)}</p></div>
+ <div class="chapter"><span class="kicker">${e(d.problem_label)}</span><h3>${e(d.problem_title)}</h3><p>${e(d.problem_text)}</p><div class="question"><span class="kicker">${e(d.question_label)}</span><blockquote>${e(d.question)}</blockquote></div></div>
+ <div class="chapter"><span class="kicker">${e(d.thought_label)}</span><h3>${e(d.thought_title)}</h3><p>${e(d.thought_intro)}</p><div class="reason-list">${d.thinking.map(t => `<div class="reason"><span class="index">${e(t[0])}</span><div><h4>${e(t[1])}</h4><p>${e(t[2])}</p></div></div>`).join('')}</div></div>
+ <div class="chapter"><span class="kicker">${e(d.execution_label)}</span><h3>${e(d.execution_title)}</h3>${d.streams.map(t => `<article class="stream"><h4>${e(t[0])}</h4>${dl(d.problem, t[1])}${dl(d.decision, t[2])}${dl(d.value, t[3])}</article>`).join('')}</div>
+ <div class="chapter conclusion"><span class="kicker">${e(d.outcome_label)}</span><h3>${e(d.outcome_title)}</h3><p>${d.outcome_text}</p><p class="deliver"><b>${e(d.deliver_label)} · </b>${e(d.deliver)}</p></div></section>
+ <section class="section" id="earlier"><div class="section-heading"><span class="kicker">02 / Archive</span><h2>${e(d.other_label)}</h2><p class="sub">${e(d.other_intro)}</p></div>${d.older.map(o => `<article class="older"><h3>${e(o.title)}</h3><p class="date">${e(o.period)}</p><p>${e(o.desc)}</p><details><summary>${e(d.work)} / ${e(d.results)}</summary><h4>${e(d.work)}</h4><ul>${o.work.map(x => `<li>${e(x)}</li>`).join('')}</ul><h4>${e(d.results)}</h4><ul>${o.results.map(x => `<li>${e(x)}</li>`).join('')}</ul></details></article>`).join('')}</section>
+ <section class="section" id="experience"><div class="section-heading"><span class="kicker">03 / Career</span><h2>${e(d.career_label)}</h2><p class="sub">${e(d.career_intro)}</p></div><div class="experience-total"><strong>${e(experienceLabel(lang))}</strong><small>${lang === 'ko' ? '2023.06.21 시작 · 한국 시간 기준' : 'Since Jun 21, 2023 · Korea time'}</small></div>${d.careers.map(c => `<article class="career"><div><h3>${e(c.name)}</h3><p>${c.roles.map(e).join(' · ')}</p></div><time>${e(c.period)}</time></article>`).join('')}</section>
+ <footer class="footer">${e(d.footer)}</footer>`;
+            try {localStorage.setItem('portfolio_lang', lang)} catch (_) { }
+        }
+        buttons.forEach(b => b.addEventListener('click', () => render(b.dataset.lang)));
+        let initial = 'ko'; try {initial = localStorage.getItem('portfolio_lang') === 'en' ? 'en' : 'ko'} catch (_) { } render(initial);
+    </script>
+</body>
 
-try {
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const dateKey = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
-  }).format(new Date());
-  const visitStorageKey = 'portfolio_visited_' + dateKey;
-  const sessionId = (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2));
-  const sessionPath = 'sessions/' + sessionId;
-  const sessionStart = Date.now();
-
-  if (!sessionStorage.getItem(visitStorageKey)) {
-    sessionStorage.setItem(visitStorageKey, '1');
-    await Promise.all([
-      runTransaction(ref(db, 'stats/daily/' + dateKey), value => (value || 0) + 1),
-      runTransaction(ref(db, 'stats/total'), value => (value || 0) + 1)
-    ]);
-  }
-
-  let referrerDomain = 'direct';
-  try { if (document.referrer) referrerDomain = new URL(document.referrer).hostname.replace(/\./g, '_'); } catch (_) {}
-  runTransaction(ref(db, 'stats/referrer/' + referrerDomain), value => (value || 0) + 1).catch(console.warn);
-
-  const onlineRef = ref(db, 'online/' + sessionId);
-  await set(onlineRef, true);
-  onDisconnect(onlineRef).remove();
-  await set(ref(db, sessionPath), {
-    start: serverTimestamp(),
-    startClient: sessionStart,
-    referrer: document.referrer || 'direct',
-    path: location.pathname,
-    language: document.documentElement.lang || navigator.language,
-    userAgent: navigator.userAgent
-  });
-
-  onValue(ref(db, 'stats/daily/' + dateKey), snap => { if (todayEl) todayEl.textContent = snap.val() || 0; });
-  onValue(ref(db, 'stats/total'), snap => { if (totalEl) totalEl.textContent = snap.val() || 0; });
-
-  const finishSession = () => {
-    const duration = Math.max(0, Math.floor((Date.now() - sessionStart) / 1000));
-    update(ref(db, sessionPath), { end: serverTimestamp(), endClient: Date.now(), duration }).catch(() => {});
-  };
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') finishSession(); });
-  window.addEventListener('pagehide', finishSession, { once: true });
-} catch (error) {
-  console.warn('Firebase visitor tracking unavailable:', error);
-  if (badge) { badge.classList.add('tracker-offline'); badge.title = 'Visitor statistics unavailable'; }
-}
-</script></body>
 </html>
